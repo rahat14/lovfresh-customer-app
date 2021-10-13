@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:local="http://schemas.android.com/tools"
+    android:id="@+id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/colorAccent"
+    android:fitsSystemWindows="true"
+    android:minHeight="?attr/actionBarSize"
+    local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fitsSystemWindows="true"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            style="@style/backStyle"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tv_toolbar_title"
+            style="@style/testMediumThirdStyle"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            style="@style/imageStyle_4"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/padd_10"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_baseline_search_24"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

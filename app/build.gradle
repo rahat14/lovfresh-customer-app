@@ -82,6 +82,7 @@ dependencies {
 
     //toast
     implementation 'com.github.GrenderG:Toasty:1.5.2'
+    implementation 'com.hbb20:ccp:2.5.4'
 
 
 

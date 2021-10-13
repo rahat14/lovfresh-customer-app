@@ -1,10 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
+    <color name="colorPrimary">#F94949</color>
+    <color name="colorPrimaryDark">#EA3C3C</color>
+    <color name="colorAccent">#F94949</color>
+    <color name="colorAccenAlpha">#CCF94949</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="colortextAccent">#8F8F8F</color>
+    <color name="text_color">#C9C9C9</color>#CECECE
+    <color name="text_header_color">#8F8F8F</color>
+    <color name="teal_200">#7B7B7B</color>
+    <color name="teal_700">#C94CAF50</color>
+    <color name="grenn">#0FE617</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="stroke_color">#8B8B8B</color>
+    <color name="fill_text">#4D4D4D</color>
+    <color name="hint_color">#C9C9C9</color>
+    <color name="payment_hint_color">#CECECE</color>
+    <color name="light_gray">#F5F5F5</color>
+    <color name="gray_color">#E4E4E4</color>
+    <item name="blue" type="color">#005EA8</item>
+    <item name="purple" type="color">#FFEFB2</item>
+    <item name="green" type="color">#FFFAE3</item>
+    <item name="orange" type="color">#FFFFBB33</item>
+    <item name="red" type="color">#FFFDC2</item>
+    <item name="darkblue" type="color">#ECFFD4</item>
+    <item name="darkpurple" type="color">#FFE7E6</item>
+    <item name="darkgreen" type="color">#FFE6EA</item>
+    <item name="darkorange" type="color">#FFF2F2</item>
+    <item name="darkred" type="color">#FEF2D8</item>
+    <item name="pp" type="color">#ECFFD4</item>
+    <color name="off_white">#EBEBEB</color>
+    <integer-array name="androidcolors">
+        <item>@color/blue</item>
+        <item>@color/purple</item>
+        <item>@color/green</item>
+        <item>@color/red</item>
+        <item>@color/darkblue</item>
+        <item>@color/darkpurple</item>
+        <item>@color/darkgreen</item>
+        <item>@color/darkorange</item>
+        <item>@color/darkred</item>
+        <item>@color/pp</item>
+        <!-- <item>@color/orange</item>-->
+    </integer-array>
+
 </resources>
