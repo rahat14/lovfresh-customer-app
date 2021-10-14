@@ -1,12 +1,24 @@
 package com.lovfreshuser.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.lovfreshuser.R
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.lovfreshuser.databinding.ActivityRegisterPageBinding
 
 class RegisterPage : AppCompatActivity() {
+    private lateinit var binding: ActivityRegisterPageBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_page)
+        binding = ActivityRegisterPageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.cm.toolBar.title = "Register"
+        binding.cm.ivBack.visibility = View.GONE
+
+        binding.btnSignup.setOnClickListener {
+
+        }
+
     }
 }
