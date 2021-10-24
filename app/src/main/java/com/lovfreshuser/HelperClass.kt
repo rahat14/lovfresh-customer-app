@@ -3,12 +3,16 @@ package com.lovfreshuser
 import android.app.ActivityManager
 import android.app.ProgressDialog
 import android.content.Context
+import android.text.TextUtils
 import android.util.Log
+import android.util.Patterns
 import es.dmoral.toasty.Toasty
 import java.security.MessageDigest
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 
 class HelperClass {
@@ -129,6 +133,31 @@ class HelperClass {
 
             return progress
 
+        }
+        fun isValidEmail(email: String?): Boolean {
+            return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        }
+        fun isValidPassword(password: String): Boolean {
+            return !TextUtils.isEmpty(password) && password.length >= 8
+        }
+
+        fun isValidPhone(phone: String): Boolean {
+            var check = false
+            check = if (!Pattern.matches("[a-zA-Z]+", phone)) {
+                !(phone.length < 9 || phone.length > 11)
+            } else {
+                false
+            }
+            return check
+        }
+
+        fun isValidPasswordz(password: String?): Boolean {
+            val pattern: Pattern
+            val matcher: Matcher
+            val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$"
+            pattern = Pattern.compile(PASSWORD_PATTERN)
+            matcher = pattern.matcher(password)
+            return matcher.matches()
         }
 
 

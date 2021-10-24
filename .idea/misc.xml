@@ -3,9 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/activity_home.xml" value="0.340625" />
         <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/activity_login_page.xml" value="0.340625" />
-        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/activity_register_page.xml" value="0.18333333333333332" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/activity_register_page.xml" value="0.33" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/activity_verify_otp.xml" value="0.18333333333333332" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/bottom_cutom_layout.xml" value="0.340625" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/bottom_layout.xml" value="0.340625" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/content_not_record_found.xml" value="0.340625" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/fragment_home.xml" value="0.340625" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/item_basic_category.xml" value="0.18333333333333332" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/toolbar_bar_home.xml" value="0.340625" />
         <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/toolbar_bar_menu.xml" value="0.340625" />
+        <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/menu/bottom_menu.xml" value="0.340625" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/drawable/bg_login_btn.xml" value="0.30185185185185187" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_login_page.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_main.xml" value="0.34375" />
