@@ -16,7 +16,7 @@ interface ApiService {
     }
 
     @GET("basic_categories")
-    fun getBasicCategoryList():List<BasicCategoryModel>
+    fun getBasicCategoryList():Call<List<BasicCategoryModel>>
 
     @FormUrlEncoded
     @POST("login")
