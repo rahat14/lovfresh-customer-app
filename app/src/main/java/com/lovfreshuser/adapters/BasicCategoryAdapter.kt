@@ -15,7 +15,7 @@ import com.lovfreshuser.models.BasicCategoryModel
 class BasicCategoryAdapter(private val interaction: Interaction? = null) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val DIFF_CALLBACK = object : DiffUtil.ItemCallback<BasicCategoryModel>() {
+    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<BasicCategoryModel>() {
 
         override fun areItemsTheSame(
             oldItem: BasicCategoryModel,
@@ -50,7 +50,7 @@ class BasicCategoryAdapter(private val interaction: Interaction? = null) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is viewholder -> {
-                holder.bind(differ.currentList.get(position))
+                holder.bind(differ.currentList[position])
             }
         }
     }
