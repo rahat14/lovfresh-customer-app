@@ -51,6 +51,9 @@ object SharedPrefManager {
         // saving data
         preferences.edit().putBoolean(key, isData).apply()
     }
+    inline  fun getVendorID(): Int {
+        return 34
+    }
 
     inline fun nukeAllData() {
         preferences.edit().clear().apply()

@@ -3,11 +3,10 @@ package com.lovfreshuser.networking
 import com.google.gson.JsonObject
 import com.lovfreshuser.models.BasicCategoryModel
 import com.lovfreshuser.models.LoginResp
+import com.lovfreshuser.models.ProductListResponse
+import com.lovfreshuser.models.Vendor_Product_Category
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
     companion object {
@@ -15,8 +14,25 @@ interface ApiService {
         val IMAGE_URL: String = "https://relax.spinnertechltd.com/storage/"
     }
 
+
+    //api/products/?vendor=34&categories=131&page_size=3
+
+
+    @GET("products")
+    fun fetchProductList(
+        @Query("vendor") vendor_id: Int,
+        @Query("categories") categories: Int,
+        @Query("page_size") page_size: Int,
+        @Query("page") page: Int
+    ): Call<ProductListResponse>
+
+    @GET("basic_categories/{id}")
+    fun getProductCategoryOnTab(
+        @Path("id") id: String
+    ): Call<Vendor_Product_Category>
+
     @GET("basic_categories")
-    fun getBasicCategoryList():Call<List<BasicCategoryModel>>
+    fun getBasicCategoryList(): Call<List<BasicCategoryModel>>
 
     @FormUrlEncoded
     @POST("login")

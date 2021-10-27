@@ -27,7 +27,7 @@ object ApiProvider {
         httpClient.readTimeout(2, TimeUnit.MINUTES)
         httpClient.writeTimeout(2, TimeUnit.MINUTES)
         //adding the auth intercepter
-        // httpClient.addInterceptor(AuthInterceptor())
+        httpClient.addInterceptor(AuthInterceptor())
         httpClient.addInterceptor(logging)
         return httpClient.build()
     }
