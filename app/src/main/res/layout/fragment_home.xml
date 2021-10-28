@@ -6,141 +6,155 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:clipToPadding="false"
-        android:fillViewport="true"
-        android:fitsSystemWindows="true"
-        android:scrollbars="none"
-        tools:context=".fragments.HomeFragment">
+        android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/auto_search"
-            style="@style/editTextstyle"
-            android:layout_margin="10dp"
-            android:background="@drawable/bg_red_and_white_box"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="5dp"
-            android:focusableInTouchMode="false"
-            android:hint="@string/search_home"
-            android:imeOptions="actionDone"
-            android:inputType="textCapSentences"
-            android:visibility="gone" />
-
-        <androidx.core.widget.NestedScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:scrollbars="none">
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:scrollbars="none"
+            tools:context=".fragments.HomeFragment">
 
-            <RelativeLayout
+            <EditText
+                android:id="@+id/auto_search"
+                style="@style/editTextstyle"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_red_and_white_box"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="5dp"
+                android:focusableInTouchMode="false"
+                android:hint="@string/search_home"
+                android:imeOptions="actionDone"
+                android:inputType="textCapSentences"
+                android:visibility="gone" />
+
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fitsSystemWindows="true">
+                android:background="@color/white"
+                android:scrollbars="none">
 
                 <RelativeLayout
-                    android:id="@+id/rl_slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:layout_below="@+id/auto_search"
-                    android:minHeight="160dp"
-                    android:visibility="gone">
-
-                    <androidx.viewpager.widget.ViewPager
-                        android:id="@+id/vp_image_slider"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rl_slider"
-                    android:layout_marginTop="@dimen/padd_10"
-                    android:visibility="visible">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/iv_img"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:layout_marginStart="20dp"
-                        android:src="@drawable/ic_fruit_img" />
-
-                    <ImageView
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:layout_marginStart="20dp"
-                        android:src="@drawable/ic_fruit_img"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/tv_shop_title"
-                        style="@style/testHeadingStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_toEndOf="@+id/iv_img"
-                        android:text=""
-                        android:textColor="@color/fill_text"
-                        android:textSize="22sp" />
-
-                    <TextView
-                        android:id="@+id/tv_fresh"
-                        style="@style/testMediumStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_shop_title"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_toEndOf="@+id/iv_img"
-                        android:text="@string/fresh_tag"
-                        android:textColor="@color/fill_text"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/tv_web_url"
-                        style="@style/testHeadingStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_fresh"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_toEndOf="@+id/iv_img"
-                        android:gravity="center"
-                        android:text=""
-                        android:textSize="14sp" />
-                </RelativeLayout>
-
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tab_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rl_layout"
-                    android:layout_margin="15dp"
-                    app:tabIndicatorColor="@color/stroke_color"
-                    app:tabMode="scrollable" />
-
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_basic_categories"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rl_layout"
-                    android:layout_marginTop="4dp"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:itemCount="2"
-                    tools:listitem="@layout/item_basic_category" />
-
-                <include
-                    layout="@layout/content_not_record_found"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/tab_category" />
-            </RelativeLayout>
+                    android:fitsSystemWindows="true">
 
-        </androidx.core.widget.NestedScrollView>
-    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/rl_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_below="@+id/auto_search"
+                        android:minHeight="160dp"
+                        android:visibility="gone">
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/vp_image_slider"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_slider"
+                        android:layout_marginTop="@dimen/padd_10"
+                        android:visibility="visible">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/iv_img"
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginStart="20dp"
+                            android:src="@drawable/ic_fruit_img" />
+
+                        <ImageView
+                            android:layout_width="110dp"
+                            android:layout_height="110dp"
+                            android:layout_marginStart="20dp"
+                            android:src="@drawable/ic_fruit_img"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_shop_title"
+                            style="@style/testHeadingStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_toEndOf="@+id/iv_img"
+                            android:text=""
+                            android:textColor="@color/fill_text"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/tv_fresh"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_shop_title"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_toEndOf="@+id/iv_img"
+                            android:text="@string/fresh_tag"
+                            android:textColor="@color/fill_text"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tv_web_url"
+                            style="@style/testHeadingStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_fresh"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="0dp"
+                            android:layout_toEndOf="@+id/iv_img"
+                            android:gravity="center"
+                            android:text=""
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/tab_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_layout"
+                        android:layout_margin="15dp"
+                        app:tabIndicatorColor="@color/stroke_color"
+                        app:tabMode="scrollable" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_basic_categories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_layout"
+                        android:layout_marginTop="4dp"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_basic_category" />
+
+                    <include
+                        layout="@layout/content_not_record_found"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/tab_category" />
+                </RelativeLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/loader"
+            layout="@layout/loading_panel_layout"/>
+
+
+    </FrameLayout>
+
+
+
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -11,7 +11,7 @@ import retrofit2.http.*
 interface ApiService {
     companion object {
         val ROOT_URL: String = "http://13.55.122.237/api/"
-        val IMAGE_URL: String = "https://relax.spinnertechltd.com/storage/"
+        val IMAGE_URL: String = "http://13.55.122.237"
     }
 
 

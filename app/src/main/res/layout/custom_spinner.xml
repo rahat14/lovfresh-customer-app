@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    style="@style/testMediumStyle"
+    android:maxLines="1"
+    android:padding="10dp"
+    android:textColor="@color/stroke_color"
+    android:text="@string/select_unit"
+    android:textSize="14sp"/>

@@ -41,12 +41,15 @@ class HomeFragment : Fragment(), BasicCategoryAdapter.Interaction {
     }
 
     private fun loadTheList() {
+        binding.loader.loadingPanel.visibility = View.VISIBLE
         val catCall = ApiProvider.dataApi.getBasicCategoryList()
         catCall.enqueue(object : Callback<List<BasicCategoryModel>> {
             override fun onResponse(
                 call: Call<List<BasicCategoryModel>>,
                 response: Response<List<BasicCategoryModel>>
             ) {
+                binding.loader.loadingPanel.visibility = View.GONE
+
                 if (response.isSuccessful && response.code() == 200) {
                     response.body()?.let { mAdatper.submitList(it) }
                 } else {
@@ -55,6 +58,7 @@ class HomeFragment : Fragment(), BasicCategoryAdapter.Interaction {
             }
 
             override fun onFailure(call: Call<List<BasicCategoryModel>>, t: Throwable) {
+                binding.loader.loadingPanel.visibility = View.GONE
                 context?.let { HelperClass.showErrorMsg("Error ${t.localizedMessage}", it) }
             }
 

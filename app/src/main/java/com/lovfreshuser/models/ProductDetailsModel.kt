@@ -1,5 +1,7 @@
 package com.lovfreshuser.models
 
+import java.io.Serializable
+
 data class ProductDetailsModel(
     val created_at: String? = null,
     val end_date_time: String? = null,
@@ -18,4 +20,4 @@ data class ProductDetailsModel(
     val title: String? = null,
     val type: String? = null,
     val updated_at: String? = null
-)
+): Serializable

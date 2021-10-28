@@ -2,6 +2,7 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ProductMenuPage">
@@ -23,7 +24,8 @@
                 android:id="@+id/tab_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabIndicatorColor="@color/stroke_color"
+                app:tabIndicatorColor="@color/colorPrimary"
+
                 app:tabMode="scrollable" />
 
             <androidx.viewpager2.widget.ViewPager2

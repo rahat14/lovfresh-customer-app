@@ -1,5 +1,6 @@
 package com.lovfreshuser.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.lovfreshuser.databinding.FragmentFoodMenuListBinding
 import com.lovfreshuser.models.ProductDetailsModel
 import com.lovfreshuser.models.ProductListResponse
 import com.lovfreshuser.networking.ApiProvider
+import com.lovfreshuser.ui.ProductDetails
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -69,6 +71,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
     }
 
     private fun loadProductList(id: Int, page: Int) {
+        binding.pbar.visibility = View.VISIBLE
         //?vendor=34&categories=131&page_size=3
         val productListCall =
             ApiProvider.dataApi.fetchProductList(34, id, 10, page)
@@ -77,6 +80,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
                 call: Call<ProductListResponse>,
                 response: Response<ProductListResponse>
             ) {
+                binding.pbar.visibility = View.GONE
                 val model: ProductListResponse? = response.body()
                 if (model?.meta != null && !model.data?.results.isNullOrEmpty()) {
 
@@ -94,6 +98,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
             }
 
             override fun onFailure(call: Call<ProductListResponse>, t: Throwable) {
+                binding.pbar.visibility = View.GONE
                 context?.let { HelperClass.showErrorMsg("Error : ${t.localizedMessage}", it) }
             }
 
@@ -102,6 +107,11 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
     }
 
     override fun onItemSelected(position: Int, item: ProductDetailsModel) {
+
+        val intent = Intent(context, ProductDetails::class.java)
+        intent.putExtra("model", item)
+        startActivity(intent)
+
 
     }
 
