@@ -93,7 +93,7 @@ class SpecialsFragment : Fragment() {
     private fun setupTab(productCategories: List<ProductCategory>) {
         // setup the adapter
         binding.foodMenuContainerViewPager.adapter = null
-        val mAdapter = activity?.let { ProductPagerAdapter(it, productCategories) }
+        val mAdapter = activity?.let { ProductPagerAdapter(it, productCategories , "spcials") }
         binding.foodMenuContainerViewPager.adapter = mAdapter
 
         TabLayoutMediator(

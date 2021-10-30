@@ -20,7 +20,8 @@ interface ApiService {
         @Query("vendor") vendor_id: Int,
         @Query("categories") categories: Int,
         @Query("page_size") page_size: Int,
-        @Query("page") page: Int
+        @Query("page") page: Int,
+        @Query("type") type: String = ""
     ): Call<ProductListResponse>
 
     @GET("shop-online")

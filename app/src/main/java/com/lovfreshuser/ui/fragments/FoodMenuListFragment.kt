@@ -28,6 +28,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
     private var postList: MutableList<ProductDetailsModel> = ArrayList()
     var currentPage = 1
     var totalPage = 0
+    var type = ""
     var itemCount = 0
     var tab_cat_id = 0
     var isScrolling = false
@@ -36,9 +37,10 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
     var scrollOutItems: Int = 0
 
     companion object {
-        fun instance(cat_id: Int): FoodMenuListFragment {
+        fun instance(cat_id: Int, type: String): FoodMenuListFragment {
             val data = Bundle()
             data.putInt("cat_id", cat_id)
+            data.putString("type", type)
             return FoodMenuListFragment().apply {
                 arguments = data
             }
@@ -59,6 +61,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tab_cat_id = arguments?.getInt("cat_id", 0) ?: 0
+         type = arguments?.getString("cat_id", "").toString()
 
         binding.rvProducts.apply {
             layoutManager = manager
@@ -74,7 +77,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
         binding.pbar.visibility = View.VISIBLE
         //?vendor=34&categories=131&page_size=3
         val productListCall =
-            ApiProvider.dataApi.fetchProductList(34, id, 10, page)
+            ApiProvider.dataApi.fetchProductList(34, id, 10, page, type )
         productListCall.enqueue(object : Callback<ProductListResponse> {
             override fun onResponse(
                 call: Call<ProductListResponse>,
