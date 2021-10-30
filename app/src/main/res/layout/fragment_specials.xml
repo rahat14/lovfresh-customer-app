@@ -1,14 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.SpecialsFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:context=".fragments.ShopOnlineFragment">
 
-</FrameLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccenAlpha"
+            app:tabIndicatorColor="@color/white"
+            app:tabMode="scrollable"
+            app:tabTextColor="@color/white" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_search_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tab_category"
+            android:layout_gravity="center"
+            android:layout_margin="7dp">
+
+            <EditText
+                android:id="@+id/auto_search"
+                style="@style/editTextstyle"
+                android:layout_width="match_parent"
+                android:layout_margin="10dp"
+                android:layout_toStartOf="@+id/iv_filter"
+                android:background="@drawable/bg_red_and_white_box"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="5dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/search_p"
+                android:imeOptions="actionDone"
+                android:inputType="textCapSentences"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/iv_filter"
+                style="@style/imageStyle2"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_filter"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ivFilterView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_filter_box"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:text="@string/sort_by"
+                    android:textSize="15sp"
+                    app:drawableStartCompat="@drawable/ic_sort_by" />
+
+                <Spinner
+                    android:id="@+id/sp_popularity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/array_popularity"
+                    android:gravity="left" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_filter_box"
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="10dp"
+                    android:text="@string/filter_by_category"
+                    app:drawableStartCompat="@drawable/ic_category" />
+
+                <Spinner
+                    android:id="@+id/sp_category"
+                    style="@style/testStyle"
+                    android:layout_marginStart="13dp"
+                    android:gravity="left"
+                    android:inputType="textCapSentences"
+                    android:prompt="@string/all_category"
+                    android:spinnerMode="dropdown"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_category"
+                    style="@style/testStyle"
+                    android:layout_marginStart="13dp"
+                    android:gravity="left"
+                    android:text="@string/all_category"
+                    android:textColor="@color/transparent"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_clear"
+            style="@style/testStyle"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_clear_filter"
+            android:padding="5dp"
+            android:text="Clear Filters"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:drawableStartCompat="@drawable/ic_white_clear" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/foodMenuContainerViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,10 +1,7 @@
 package com.lovfreshuser.networking
 
 import com.google.gson.JsonObject
-import com.lovfreshuser.models.BasicCategoryModel
-import com.lovfreshuser.models.LoginResp
-import com.lovfreshuser.models.ProductListResponse
-import com.lovfreshuser.models.Vendor_Product_Category
+import com.lovfreshuser.models.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -25,6 +22,11 @@ interface ApiService {
         @Query("page_size") page_size: Int,
         @Query("page") page: Int
     ): Call<ProductListResponse>
+
+    @GET("shop-online")
+    fun getShopOnlineCategoryOnTab(
+        @Query("vendor") id: String
+    ): Call<List<ProductCategory>>
 
     @GET("basic_categories/{id}")
     fun getProductCategoryOnTab(
