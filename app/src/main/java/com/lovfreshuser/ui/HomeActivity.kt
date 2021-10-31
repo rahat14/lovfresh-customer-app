@@ -3,6 +3,7 @@ package com.lovfreshuser.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.lovfreshuser.R
+import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.databinding.ActivityHomeBinding
 import com.lovfreshuser.ui.fragments.ContianerPagerAdapter
 
@@ -15,6 +16,8 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.navHostFragment.adapter = ContianerPagerAdapter(this)
         binding.navHostFragment.isUserInputEnabled = false
+
+
 
         binding.bottomNav.setOnItemSelectedListener {
             when (it.itemId) {

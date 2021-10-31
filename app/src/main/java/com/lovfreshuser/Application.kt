@@ -1,6 +1,7 @@
 package com.lovfreshuser
 
 import android.app.Application
+import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.utils.SharedPrefManager
 
 class Application : Application() {
