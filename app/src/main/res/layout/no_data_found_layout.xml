@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_no_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_nodatafound"
+        app:tint="@color/colorAccent" />
+
+
+    <TextView
+        style="@style/testStyle"
+        android:gravity="center"
+        android:text="@string/ho_ho"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        style="@style/testStyle"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/cart_is_empty"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_add_item"
+        style="@style/buttonStyle"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_item_add_cart"
+        android:gravity="center"
+        android:text="@string/add_item"
+        android:textAllCaps="false"
+        android:layout_height="35dp"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12sp" />
+
+    <!-- <Button
+         android:id="@+id/btn_login"
+         style="@style/buttonStyle"
+         android:layout_marginTop="15dp"
+         android:background="@drawable/bg_item_add_cart"
+         android:gravity="center"
+         android:text="@string/login"
+         android:textAllCaps="false"
+         android:layout_height="35dp"
+         android:visibility="gone"
+         android:layout_width="100dp"
+         android:textColor="@color/colorPrimaryDark"
+         android:textSize="12sp" />
+ -->
+
+</LinearLayout>

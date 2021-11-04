@@ -23,6 +23,9 @@
         android:theme="@style/Theme.Lovfresh"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.CartPage"
+            android:exported="false" />
+        <activity
             android:name=".ui.ProductDetails"
             android:exported="false" />
         <activity

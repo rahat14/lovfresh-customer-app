@@ -9,7 +9,7 @@ import com.lovfreshuser.database.models.CartLocalDbModel
 
 @Database(
     entities = [CartLocalDbModel::class],
-    version = 2,
+    version = 4,
     exportSchema = false
 )
 abstract class OfflineDatabase : RoomDatabase() {

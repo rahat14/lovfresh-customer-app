@@ -5,7 +5,7 @@ import java.io.Serializable
 data class ProductDetailsModel(
     val created_at: String? = null,
     val end_date_time: String? = null,
-    val id: Int? = null,
+    val id: Int ,
     val images: List<Image>? = null,
     val is_active: Boolean? = null,
     val is_hide: Boolean? = null,

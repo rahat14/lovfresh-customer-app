@@ -10,13 +10,13 @@ data class CartLocalDbModel(
     var id : Int= 0 ,
     var item_id: String = "",
     var itemName: String = "",
-    var price: Double? = 0.0,
-    var unit: Double = 0.0,
-    var unitValue: Double = 0.0,
+    var price: Double = 0.0,
+    var unit: String ="0.0",
+    var unitValue: String = "0.0",
     var unitId: String = "",
     var quantity: Int = 0,
     var stockQuantity: Int =0,
     var image: String = "",
     var vendorId: String = "",
-    val itemCount: Int = 0
+    val itemCount: Int = 0 //stock 12
 )

@@ -3,9 +3,13 @@ package com.lovfreshuser
 import android.app.ActivityManager
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
+import androidx.appcompat.app.AlertDialog
+import com.lovfreshuser.database.OfflineDatabase
+import com.lovfreshuser.database.models.CartLocalDbModel
 import es.dmoral.toasty.Toasty
 import java.security.MessageDigest
 import java.text.DecimalFormat
@@ -17,6 +21,13 @@ import java.util.regex.Pattern
 
 class HelperClass {
     companion object {
+
+
+        fun getCountOfCarts(db: OfflineDatabase) : Int {
+
+           return   db.cartDao().getAll().size
+
+        }
 
         fun convertWorkingDaysToArray(workingDaysString: String): List<String> {
 
@@ -222,6 +233,15 @@ class HelperClass {
 //            return token
 //
 //        }
+
+        fun alertDeleteDialog(
+            context: Context
+        ): AlertDialog.Builder {
+            val builder = AlertDialog.Builder(context, R.style.AlertDialogCustom)
+            builder.setCancelable(true)
+
+            return builder
+        }
 
 
     }

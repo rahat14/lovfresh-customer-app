@@ -61,7 +61,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tab_cat_id = arguments?.getInt("cat_id", 0) ?: 0
-         type = arguments?.getString("cat_id", "").toString()
+        type = arguments?.getString("cat_id", "").toString()
 
         binding.rvProducts.apply {
             layoutManager = manager
