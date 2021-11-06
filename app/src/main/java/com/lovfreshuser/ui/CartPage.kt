@@ -3,6 +3,7 @@ package com.lovfreshuser.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.lovfreshuser.HelperClass
 import com.lovfreshuser.adapters.CartAdapter
 import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.database.models.CartLocalDbModel
@@ -46,7 +47,12 @@ class CartPage : AppCompatActivity(), CartAdapter.Interaction {
     private fun loadAllCarts(items: MutableList<CartLocalDbModel>) {
 
         mAdapter.submitList(items)
+        binding.tvTotalAmount.text =
+            "${HelperClass.convertAmountToString(HelperClass.getTotalOfCart(items))}"
+    }
 
+     fun updatePrice(totalPrice: Double) {
+        binding.tvTotalAmount.text = "${HelperClass.convertAmountToString(totalPrice)}"
     }
 
     override fun onItemSelected(position: Int, item: CartLocalDbModel) {

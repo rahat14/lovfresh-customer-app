@@ -64,7 +64,7 @@ class CartAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is viewholder -> {
-                holder.bind(differ.currentList[position])
+                holder.bind(differ.currentList[position] , differ.currentList)
             }
         }
     }
@@ -85,7 +85,7 @@ class CartAdapter(
         val binding = ItemAddCheckoutCartBinding.bind(itemView)
 
         @SuppressLint("SetTextI18n")
-        fun bind(item: CartLocalDbModel) {
+        fun bind(item: CartLocalDbModel , currentList : List<CartLocalDbModel>) {
 
             itemView.setOnClickListener {
                 interaction?.onItemSelected(absoluteAdapterPosition, item)
@@ -122,7 +122,7 @@ class CartAdapter(
                 dilalogeBuilder.setNegativeButton(
                     binding.root.context.getText(R.string.cancel)
                 ) { dialog: DialogInterface, id: Int -> dialog.cancel() }
-                updateItem(item, itemView.context)
+                updateItem(item, itemView.context , currentList)
                 val alert1 = dilalogeBuilder.create()
                 alert1.show()
             }
@@ -133,7 +133,7 @@ class CartAdapter(
                 if (item.stockQuantity >= newQty) {
                     binding.tvTotalAmt.text = "$ ${String.format("%.2f", (newQty * item.price))}"
                     item.quantity = newQty
-                    updateItem(item, itemView.context)
+                    updateItem(item, itemView.context, currentList)
                     binding.tvQuantity.text = "${newQty}"
                 } else {
                     HelperClass.showWarningMsg("Stock Limited", itemView.context)
@@ -141,11 +141,11 @@ class CartAdapter(
             }
             binding.ivMinus.setOnClickListener {
                 val newQty = item.quantity - 1
-                if (newQty >= 1) {
+                if (newQty >=  1) {
                     binding.tvQuantity.text = "${newQty}"
                     binding.tvTotalAmt.text = "$ ${String.format("%.2f", (newQty * item.price))}"
                     item.quantity = newQty
-                    updateItem(item, itemView.context)
+                    updateItem(item, itemView.context, currentList)
                     binding.tvQuantity.text = "${newQty}"
 
                 } else {
@@ -155,13 +155,18 @@ class CartAdapter(
 
         }
 
-        fun updateItem(item: CartLocalDbModel, ctx: Context) {
+        private fun updateItem(
+            item: CartLocalDbModel,
+            ctx: Context,
+            currentList: List<CartLocalDbModel>
+        ) {
             val database = OfflineDatabase(ctx)
             CoroutineScope(Dispatchers.IO).launch {
                 database.cartDao().updateItem(item)
 //                withContext(Dispatchers.Main) {
 //                    Toast.makeText(ctx, "Item Updated", Toast.LENGTH_SHORT).show()
 //                }
+                cartPage.updatePrice(HelperClass.getTotalOfCart(currentList))
             }
 
         }

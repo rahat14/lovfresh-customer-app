@@ -12,7 +12,7 @@ import com.lovfreshuser.HelperClass
 import com.lovfreshuser.databinding.FragmentSpecialsBinding
 import com.lovfreshuser.models.ProductCategory
 import com.lovfreshuser.networking.ApiProvider
-import com.lovfreshuser.ui.ProductPagerAdapter
+import com.lovfreshuser.ui.product.ProductPagerAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

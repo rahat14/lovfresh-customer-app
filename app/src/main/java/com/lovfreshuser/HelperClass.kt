@@ -3,7 +3,6 @@ package com.lovfreshuser
 import android.app.ActivityManager
 import android.app.ProgressDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
@@ -23,9 +22,9 @@ class HelperClass {
     companion object {
 
 
-        fun getCountOfCarts(db: OfflineDatabase) : Int {
+        fun getCountOfCarts(db: OfflineDatabase): Int {
 
-           return   db.cartDao().getAll().size
+            return db.cartDao().getAll().size
 
         }
 
@@ -145,9 +144,11 @@ class HelperClass {
             return progress
 
         }
+
         fun isValidEmail(email: String?): Boolean {
             return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
         }
+
         fun isValidPassword(password: String): Boolean {
             return !TextUtils.isEmpty(password) && password.length >= 8
         }
@@ -233,6 +234,18 @@ class HelperClass {
 //            return token
 //
 //        }
+
+        fun getTotalOfCart(items: List<CartLocalDbModel>): Double {
+            var totalValue = 0.0
+            for (item in items) {
+                totalValue += (item.quantity * item.price)
+            }
+            return totalValue
+        }
+
+        fun convertAmountToString(amt: Double): String {
+            return String.format("%.2f", amt)
+        }
 
         fun alertDeleteDialog(
             context: Context

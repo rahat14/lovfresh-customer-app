@@ -1,16 +1,22 @@
-package com.lovfreshuser.ui
+package com.lovfreshuser.ui.product
 
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.lovfreshuser.HelperClass
+import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.databinding.ActivityProductMenuPageBinding
 import com.lovfreshuser.models.ProductCategory
 import com.lovfreshuser.models.Vendor_Product_Category
 import com.lovfreshuser.networking.ApiProvider
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -105,5 +111,21 @@ class ProductMenuPage : AppCompatActivity() {
         }.attach()
 
     }
+    private fun cartCount() {
+        binding.toolbarContianer.tvCartCount.visibility = View.VISIBLE
 
+        CoroutineScope(Dispatchers.IO).launch {
+            val item = HelperClass.getCountOfCarts(OfflineDatabase(applicationContext))
+            withContext(Dispatchers.Main) {
+                binding.toolbarContianer.tvCartCount.text = "${item}"
+
+            }
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cartCount()
+    }
 }

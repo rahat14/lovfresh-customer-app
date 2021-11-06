@@ -15,7 +15,7 @@ import com.lovfreshuser.databinding.FragmentFoodMenuListBinding
 import com.lovfreshuser.models.ProductDetailsModel
 import com.lovfreshuser.models.ProductListResponse
 import com.lovfreshuser.networking.ApiProvider
-import com.lovfreshuser.ui.ProductDetails
+import com.lovfreshuser.ui.product.ProductDetails
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -12,7 +12,7 @@ import com.lovfreshuser.adapters.BasicCategoryAdapter
 import com.lovfreshuser.databinding.FragmentHomeBinding
 import com.lovfreshuser.models.BasicCategoryModel
 import com.lovfreshuser.networking.ApiProvider
-import com.lovfreshuser.ui.ProductMenuPage
+import com.lovfreshuser.ui.product.ProductMenuPage
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -67,7 +67,7 @@ class HomeFragment : Fragment(), BasicCategoryAdapter.Interaction {
 
     override fun onItemSelected(position: Int, item: BasicCategoryModel) {
         // change the page to another place
-        val intent = Intent(context ,ProductMenuPage::class.java )
+        val intent = Intent(context , ProductMenuPage::class.java )
         intent.putExtra("basic_cat_id" , item.id )
         startActivity(intent)
 

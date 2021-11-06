@@ -1,4 +1,4 @@
-package com.lovfreshuser.ui
+package com.lovfreshuser.ui.product
 
 import android.R
 import android.content.Intent
@@ -13,6 +13,7 @@ import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.database.models.CartLocalDbModel
 import com.lovfreshuser.databinding.ActivityProductDetailsBinding
 import com.lovfreshuser.models.ProductDetailsModel
+import com.lovfreshuser.ui.CartPage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -97,7 +98,7 @@ class ProductDetails : AppCompatActivity() {
         }
     }
 
-    fun cartCount() {
+    private fun cartCount() {
         binding.bar.tvCartCount.visibility = View.VISIBLE
 
 

@@ -23,13 +23,22 @@
         android:theme="@style/Theme.Lovfresh"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.PickUpDelivery.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PickUpDelivery.ShippingAddressListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PickUpDelivery.PickAndDeliveryPage"
+            android:exported="false" />
+        <activity
             android:name=".ui.CartPage"
             android:exported="false" />
         <activity
-            android:name=".ui.ProductDetails"
+            android:name=".ui.product.ProductDetails"
             android:exported="false" />
         <activity
-            android:name=".ui.ProductMenuPage"
+            android:name=".ui.product.ProductMenuPage"
             android:exported="false" />
         <activity
             android:name=".ui.HomeActivity"
