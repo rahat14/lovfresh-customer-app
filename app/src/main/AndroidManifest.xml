@@ -23,6 +23,24 @@
         android:theme="@style/Theme.Lovfresh"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.orders.OrderPage"
+            android:exported="false" />
+        <activity
+            android:name=".ui.vendors.VendorDetails"
+            android:exported="false" />
+        <activity
+            android:name=".ui.vendors.StoreSelectionPage"
+            android:exported="false" />
+        <activity
+            android:name=".ui.referal.ReferFriend"
+            android:exported="false" />
+        <activity
+            android:name=".ui.settings.NotificaitonSettings"
+            android:exported="false" />
+        <activity
+            android:name=".ui.settings.SettingsPage"
+            android:exported="false" />
+        <activity
             android:name=".ui.profile.EditProfileActivity"
             android:exported="false" />
         <activity
@@ -48,9 +66,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.HomeActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.VerifyOtp"
             android:exported="false" />
@@ -62,7 +78,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.SplashScreen"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

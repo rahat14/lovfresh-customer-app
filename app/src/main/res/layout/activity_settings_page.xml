@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/toolbar_bar_menu" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topBar"
+        android:background="@color/white"
+        android:padding="@dimen/padd_15">
+
+        <TextView
+            android:id="@+id/tv_notification"
+            style="@style/testsecondStyle"
+            android:drawablePadding="@dimen/padd_10"
+            android:gravity="left|center_vertical"
+            android:padding="15dp"
+            android:text="@string/notification_setting"
+            app:drawableEndCompat="@drawable/ic_grey_right_arrow"
+            app:drawableStartCompat="@drawable/ic_notification_black" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_other_s"
+            style="@style/testsecondStyle"
+            android:layout_below="@+id/tv_notification"
+            android:text="@string/other_setting"
+            android:drawablePadding="@dimen/padd_10"
+            android:gravity="left|center_vertical"
+            android:padding="15dp"
+            app:drawableStartCompat="@drawable/ic_other_s"
+            app:drawableEndCompat="@drawable/ic_grey_right_arrow" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

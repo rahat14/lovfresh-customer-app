@@ -285,6 +285,32 @@ class HelperClass {
             return str
         }
 
+        fun toDefaultFormattedDateStr(inputDate: String?): String? {
+            return formatDateStr(
+                "yyyy-MM-dd",
+                "dd/MM/yyyy",
+                inputDate
+            )
+        }
+
+        fun formatDateStr(
+            inputFormat: String?,
+            outputFormat: String?,
+            inputDate: String?
+        ): String {
+            var parsed: Date? = null
+            var outputDate = ""
+            val df_input = SimpleDateFormat(inputFormat, Locale.getDefault())
+            val df_output = SimpleDateFormat(outputFormat, Locale.getDefault())
+            try {
+                parsed = df_input.parse(inputDate)
+                outputDate = df_output.format(parsed)
+            } catch (e: ParseException) {
+                if (e.message != null) Log.e("BaseUtility", e.message!!)
+            }
+            return outputDate
+        }
+
     }
 
 }

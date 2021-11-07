@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/ll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/order_id"
+            style="@style/testsecondStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="123456"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/order_date"
+            style="@style/testsecondStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nov 23 2021"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/order_status"
+            style="@style/testsecondStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+            android:padding="2dp"
+            android:textSize="10sp"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_status_box"
+            android:textStyle="bold"
+            android:maxLines="2"/>
+
+        <TextView
+            android:id="@+id/tv_comp_order_date"
+            style="@style/testsecondStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text=""
+            android:padding="2dp"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:maxLines="3"/>
+
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_detail"
+            style="@style/testsecondStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:rotation="90"
+            android:src="@drawable/ic_baseline_play_arrow_24" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/viewLineStyle"
+        android:layout_marginTop="5dp"/>
+
+</LinearLayout>
+    <!--
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/order_id"
+                style="@style/testsecondStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="123456"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/order_date"
+                style="@style/testsecondStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Nov 23 2021"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/order_type"
+                style="@style/testsecondStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="pickup"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/order_status"
+                style="@style/testsecondStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=""
+                android:padding="2dp"
+                android:textSize="10sp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_status_box"
+                android:textStyle="bold"
+                android:maxLines="2"/>
+            &lt;!&ndash;<TextView
+                android:id="@+id/order_status"
+                style="@style/testsecondStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Pending"
+                android:textSize="15sp"
+                android:textStyle="bold" />&ndash;&gt;
+
+            <ImageView
+                android:id="@+id/tv_order_detail"
+                style="@style/testsecondStyle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:rotation="90"
+                android:src="@drawable/ic_baseline_play_arrow_24" />
+
+        </LinearLayout>
+
+        <View
+           style="@style/viewLineStyle"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>-->

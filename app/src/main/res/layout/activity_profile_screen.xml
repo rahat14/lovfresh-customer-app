@@ -7,12 +7,14 @@
     android:background="@color/colorAccent"
     android:fitsSystemWindows="true">
 
-    <include layout="@layout/toolbar_bar_main" />
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/toolbar_bar_main" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tool_bar"
+        android:layout_below="@+id/topBar"
         android:background="@color/white"
         android:scrollbars="none">
 

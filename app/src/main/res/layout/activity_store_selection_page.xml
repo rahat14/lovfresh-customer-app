@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/splash_img"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/toolbar_bar_vendor" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topBar"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/auto_vendor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bg_red_and_white_box" >
+
+            <EditText
+                android:id="@+id/auto_vendor_search"
+                style="@style/editTextstyle"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="5dp"
+                android:background="@android:color/transparent"
+                android:hint="@string/search"
+                android:imeOptions="actionDone"
+                android:inputType="textCapSentences" />
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/ic_clear_24"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_store"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/auto_vendor"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="10dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_search_store" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

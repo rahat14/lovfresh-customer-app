@@ -11,13 +11,29 @@ interface ApiService {
         val IMAGE_URL: String = "http://13.55.122.237"
     }
 
-   // v2/vendor/slot-setting/?vendor_id=
+    //orv order
+    @GET("v2/orders")
+    fun getPrevOrders(
+        @Query("page_size") page_size: Int,
+        @Query("page") page: Int,
+        @Query("status") status: String
+    ): Call<OrderHistoryResponse>
+
+    // v2/vendor/slot-setting/?vendor_id=
     @GET("v2/vendor/slot-setting")
     fun getTimeSlots(
         @Query("vendor_id") vendor_id: String,
-       @Query("delivery_type") delivery_type: String
+        @Query("delivery_type") delivery_type: String
 
     ): Call<List<DateModel>>
+
+    //serch vendor
+    ///search?latitude=-33.8761815&longitude=151.2463338
+    @GET("vendors/search")
+    fun searchVendor(
+        @Query("latitude") latitude: String,
+        @Query("longitude") longitude: String,
+    ): Call<List<VendorItem>>
 
     @GET("products")
     fun fetchProductList(

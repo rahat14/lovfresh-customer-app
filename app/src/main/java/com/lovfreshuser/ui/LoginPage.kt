@@ -67,7 +67,8 @@ class LoginPage : AppCompatActivity() {
                         response.body()?.message.toString(),
                         applicationContext
                     )
-
+                    startActivity(Intent(applicationContext, HomeActivity::class.java))
+                    finish()
 
                 } else if (response.code() == 400) {
                     HelperClass.showInfoMsg(

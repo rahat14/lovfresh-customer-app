@@ -282,7 +282,7 @@
     </style>
 
     <style name="MineCustomTabText" parent="Widget.AppCompat.ActionBar.TabBar">
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
 

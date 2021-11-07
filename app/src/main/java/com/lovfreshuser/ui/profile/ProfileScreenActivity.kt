@@ -1,6 +1,8 @@
 package com.lovfreshuser.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -22,6 +24,15 @@ class ProfileScreenActivity : AppCompatActivity() {
             setDetails(model)
         }
 
+        binding.topBar.ivBasket.visibility = View.GONE
+        binding.topBar.tvEditBtn.visibility = View.VISIBLE
+
+        binding.topBar.ivBack.setOnClickListener {
+            finish()
+        }
+        binding.topBar.tvEditBtn.setOnClickListener {
+            startActivity(Intent(applicationContext, EditProfileActivity::class.java))
+        }
 
     }
 
