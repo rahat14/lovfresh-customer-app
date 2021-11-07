@@ -28,6 +28,11 @@ class SpecialsFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentSpecialsBinding.inflate(layoutInflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         loadTitleCategory()
         /*
     canceliing drag when swiping
@@ -48,7 +53,6 @@ class SpecialsFragment : Fragment() {
                 super.onPageScrollStateChanged(state)
             }
         })
-        return binding.root
     }
 
     private fun enableDisableSwipeRefresh(enable: Boolean) {
@@ -93,7 +97,7 @@ class SpecialsFragment : Fragment() {
     private fun setupTab(productCategories: List<ProductCategory>) {
         // setup the adapter
         binding.foodMenuContainerViewPager.adapter = null
-        val mAdapter = activity?.let { ProductPagerAdapter(it, productCategories , "spcials") }
+        val mAdapter = activity?.let { ProductPagerAdapter(it, productCategories , "SPECIALS") }
         binding.foodMenuContainerViewPager.adapter = mAdapter
 
         TabLayoutMediator(
