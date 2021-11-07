@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.lovfreshuser.HelperClass
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.databinding.FragmentSpecialsBinding
 import com.lovfreshuser.models.ProductCategory
 import com.lovfreshuser.networking.ApiProvider

@@ -1,13 +1,15 @@
 package com.lovfreshuser.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lovfreshuser.HelperClass
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.adapters.CartAdapter
 import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.database.models.CartLocalDbModel
 import com.lovfreshuser.databinding.ActivityCartPageBinding
+import com.lovfreshuser.ui.pickUpDelivery.PickAndDeliveryPage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,6 +32,10 @@ class CartPage : AppCompatActivity(), CartAdapter.Interaction {
             adapter = mAdapter
         }
         getAllCarts()
+
+        binding.btnBuy.setOnClickListener {
+            startActivity(Intent(applicationContext , PickAndDeliveryPage::class.java))
+        }
 
     }
 

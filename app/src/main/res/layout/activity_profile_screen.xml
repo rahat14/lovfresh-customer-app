@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:fitsSystemWindows="true">
+
+    <include layout="@layout/toolbar_bar_main" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_bar"
+        android:background="@color/white"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_profile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cmv_profile"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/user_image"
+                    app:civ_border_color="@color/colorPrimaryDark"
+                    app:civ_border_width="1dp" />
+
+                <ImageView
+                    android:id="@+id/iv_edit_image"
+                    style="@style/imageStyled"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="end"
+                    android:contentDescription="@null"
+                    android:src="@drawable/id_edit_pencil"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/iv_add_image"
+                    style="@style/imageStyle"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@null"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/ic_add_img"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                style="@style/testsecondStyle"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="User Name"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_first_name"
+                style="@style/editTextstyle"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:enabled="false"
+                android:hint="@string/first_nm"
+                android:inputType="none" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_last_name"
+                style="@style/editTextstyle"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:enabled="false"
+                android:hint="@string/last_nm"
+                android:inputType="none" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_email"
+                style="@style/editTextstyle"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:enabled="false"
+                android:hint="@string/email"
+                android:inputType="none" />
+
+            <RelativeLayout
+                android:id="@+id/rv_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_white_box_with_gray">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    android:visibility="gone"
+                    app:ccp_areaCodeDetectedCountry="true"
+                    app:ccp_showNameCode="false"
+                    app:ccp_textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_country_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/default_county_code"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/tv_country_code"
+                    android:background="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/ed_phone"
+                    style="@style/editTextstyle"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/view1"
+                    android:background="@android:color/transparent"
+                    android:enabled="false"
+                    android:focusableInTouchMode="true"
+                    android:hint="@string/phone"
+                    android:inputType="none" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_change_pas"
+                style="@style/testHeadingNormalStyle"
+                android:layout_width="match_parent"
+                android:layout_margin="15dp"
+                android:drawableLeft="@drawable/ic_other_s"
+                android:drawableRight="@drawable/ic_grey_right_arrow"
+                android:drawablePadding="@dimen/padd_10"
+                android:gravity="start|center_vertical"
+                android:text="@string/change_password"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_my_address"
+                style="@style/testHeadingNormalStyle"
+                android:layout_width="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="@dimen/padd_15"
+                android:drawableLeft="@drawable/ic_my_address"
+                android:drawableRight="@drawable/ic_grey_right_arrow"
+                android:drawablePadding="@dimen/padd_10"
+                android:drawableTint="#868686"
+                android:gravity="start|center_vertical"
+                android:text="@string/my_address"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_update"
+                style="@style/buttonStyle"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/update_profile"
+                android:textAllCaps="false"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_gravity="bottom"
+                android:layout_margin="25dp"
+                android:contentDescription="@null"
+                android:src="@drawable/heart_logo" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

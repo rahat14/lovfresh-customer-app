@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.lovfreshuser.Const
-import com.lovfreshuser.HelperClass
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.databinding.ActivityLoginPageBinding
 import com.lovfreshuser.models.LoginResp
 import com.lovfreshuser.networking.ApiProvider
@@ -62,10 +62,13 @@ class LoginPage : AppCompatActivity() {
                 if (response.code() == 200 && response.isSuccessful) {
                     SharedPrefManager.put(response.body()?.user, Const.USER_PREF)
                     SharedPrefManager.put(response.body()?.user?.token, Const.TOKEN)
+
                     HelperClass.showSuccessMsg(
                         response.body()?.message.toString(),
                         applicationContext
                     )
+
+
                 } else if (response.code() == 400) {
                     HelperClass.showInfoMsg(
                         "Error : Unable to log in with provided credentials !!!",

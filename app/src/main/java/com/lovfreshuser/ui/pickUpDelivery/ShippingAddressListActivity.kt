@@ -1,4 +1,4 @@
-package com.lovfreshuser.ui.PickUpDelivery
+package com.lovfreshuser.ui.pickUpDelivery
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

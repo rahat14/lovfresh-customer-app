@@ -8,7 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.afdhal_fa.imageslider.model.SlideUIModel
-import com.lovfreshuser.HelperClass
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.database.models.CartLocalDbModel
 import com.lovfreshuser.databinding.ActivityProductDetailsBinding

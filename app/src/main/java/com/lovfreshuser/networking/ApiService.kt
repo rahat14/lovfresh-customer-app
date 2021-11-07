@@ -11,9 +11,13 @@ interface ApiService {
         val IMAGE_URL: String = "http://13.55.122.237"
     }
 
+   // v2/vendor/slot-setting/?vendor_id=
+    @GET("v2/vendor/slot-setting")
+    fun getTimeSlots(
+        @Query("vendor_id") vendor_id: String,
+       @Query("delivery_type") delivery_type: String
 
-    //api/products/?vendor=34&categories=131&page_size=3
-
+    ): Call<List<DateModel>>
 
     @GET("products")
     fun fetchProductList(

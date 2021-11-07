@@ -1,4 +1,4 @@
-package com.lovfreshuser.ui.PickUpDelivery
+package com.lovfreshuser.ui.pickUpDelivery
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,7 +17,7 @@ class PickAndDeliveryPage : AppCompatActivity() {
             val delivery_status = "delivery"
             val intent = Intent(applicationContext, ShippingAddressListActivity::class.java)
             intent.putExtra("ORDER_TYPE", delivery_status)
-            intent.putExtra("DELIVERY_COST", "5.00")
+            intent.putExtra("DELIVERY_COST", 5.00)
             //SessionManager(context).setSeelction(model.getId())
             startActivity(intent)
         }
@@ -25,7 +25,7 @@ class PickAndDeliveryPage : AppCompatActivity() {
             val delivery_status = "pickup"
             val intent = Intent(applicationContext, PaymentActivity::class.java)
             intent.putExtra("ORDER_TYPE", delivery_status)
-            intent.putExtra("DELIVERY_COST", "0.0")
+            intent.putExtra("DELIVERY_COST", 0.0)
            // SessionManager(context).setSeelction(model.getId())
             startActivity(intent)
         }

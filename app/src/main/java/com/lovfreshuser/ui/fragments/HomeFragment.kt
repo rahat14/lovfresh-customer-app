@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lovfreshuser.HelperClass
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.adapters.BasicCategoryAdapter
 import com.lovfreshuser.databinding.FragmentHomeBinding
 import com.lovfreshuser.models.BasicCategoryModel

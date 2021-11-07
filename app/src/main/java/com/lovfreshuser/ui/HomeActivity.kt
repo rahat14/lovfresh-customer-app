@@ -1,9 +1,10 @@
 package com.lovfreshuser.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.lovfreshuser.HelperClass
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.R
 import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.databinding.ActivityHomeBinding
@@ -42,6 +43,9 @@ class HomeActivity : AppCompatActivity() {
             }
 
             return@setOnItemSelectedListener true
+        }
+        binding.topBar.dd.setOnClickListener {
+            startActivity(Intent(applicationContext , CartPage::class.java))
         }
     }
 
