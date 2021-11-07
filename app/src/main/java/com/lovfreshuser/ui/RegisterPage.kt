@@ -7,13 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.google.gson.JsonObject
-import com.lovfreshuser.Const
-import com.lovfreshuser.HelperClass
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.R
 import com.lovfreshuser.databinding.ActivityRegisterPageBinding
-import com.lovfreshuser.models.LoginResp
 import com.lovfreshuser.networking.ApiProvider
-import com.lovfreshuser.utils.SharedPrefManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,11 +1,18 @@
 package com.lovfreshuser.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.R
 import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.databinding.ActivityHomeBinding
 import com.lovfreshuser.ui.fragments.ContianerPagerAdapter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -37,5 +44,26 @@ class HomeActivity : AppCompatActivity() {
 
             return@setOnItemSelectedListener true
         }
+        binding.topBar.dd.setOnClickListener {
+            startActivity(Intent(applicationContext , CartPage::class.java))
+        }
+    }
+
+    private fun cartCount() {
+        binding.topBar.tvCartCount.visibility = View.VISIBLE
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val item = HelperClass.getCountOfCarts(OfflineDatabase(applicationContext))
+            withContext(Dispatchers.Main) {
+                binding.topBar.tvCartCount.text = "${item}"
+
+            }
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cartCount()
     }
 }

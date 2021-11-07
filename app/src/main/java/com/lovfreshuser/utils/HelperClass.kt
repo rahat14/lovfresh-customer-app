@@ -1,4 +1,4 @@
-package com.lovfreshuser
+package com.lovfreshuser.utils
 
 import android.app.ActivityManager
 import android.app.ProgressDialog
@@ -6,9 +6,16 @@ import android.content.Context
 import android.text.TextUtils
 import android.util.Log
 import android.util.Patterns
+import androidx.appcompat.app.AlertDialog
+import com.lovfreshuser.Const
+import com.lovfreshuser.R
+import com.lovfreshuser.database.OfflineDatabase
+import com.lovfreshuser.database.models.CartLocalDbModel
+import com.lovfreshuser.models.User
 import es.dmoral.toasty.Toasty
 import java.security.MessageDigest
 import java.text.DecimalFormat
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.regex.Matcher
@@ -17,6 +24,13 @@ import java.util.regex.Pattern
 
 class HelperClass {
     companion object {
+
+
+        fun getCountOfCarts(db: OfflineDatabase): Int {
+
+            return db.cartDao().getAll().size
+
+        }
 
         fun convertWorkingDaysToArray(workingDaysString: String): List<String> {
 
@@ -59,6 +73,18 @@ class HelperClass {
             }
 
             return output
+        }
+
+        fun convertDateFormat(date: String?): String? {
+            var spf = SimpleDateFormat("yyyy-MM-dd")
+            var newDate: Date? = null
+            try {
+                newDate = spf.parse(date)
+            } catch (e: ParseException) {
+                e.printStackTrace()
+            }
+            spf = SimpleDateFormat("MM/dd/yyyy")
+            return spf.format(newDate)
         }
 
         fun getCurrentDate(): String {
@@ -134,9 +160,11 @@ class HelperClass {
             return progress
 
         }
+
         fun isValidEmail(email: String?): Boolean {
             return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
         }
+
         fun isValidPassword(password: String): Boolean {
             return !TextUtils.isEmpty(password) && password.length >= 8
         }
@@ -189,24 +217,15 @@ class HelperClass {
 //
 //        }
 
-//        fun getUserID(): Int {
-//            val user: UserModel? = SharedPrefManager.get(Const.USER_PREF)
-//            return user?.id ?: 0
-//        }
+        fun getUserID(): Int {
+            val user: User? = SharedPrefManager.get(Const.USER_PREF)
+            return user?.id ?: 0
+        }
 
 
-        //        fun isUserLoggedIn(): Boolean {
-//            val user: UserModel? = SharedPrefManager.get(Const.USER_PREF)
-//
-//            return user != null
-//
-//        }
-        fun isForeground(context: Context): Boolean {
-            val packageName = "com.example.outdoorbd"
-            val manager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-            val runningTaskInfo = manager.getRunningTasks(1)
-            val componentInfo = runningTaskInfo[0].topActivity
-            return componentInfo!!.packageName == packageName
+        fun isUserLoggedIn(): Boolean {
+            val user: User? = SharedPrefManager.get(Const.USER_PREF)
+            return user != null
         }
 
 
@@ -223,6 +242,48 @@ class HelperClass {
 //
 //        }
 
+        fun getTotalOfCart(items: List<CartLocalDbModel>): Double {
+            var totalValue = 0.0
+            for (item in items) {
+                totalValue += (item.quantity * item.price)
+            }
+            return totalValue
+        }
+
+        fun convertAmountToString(amt: Double): String {
+            return String.format("%.2f", amt)
+        }
+
+        fun alertDeleteDialog(
+            context: Context
+        ): AlertDialog.Builder {
+            val builder = AlertDialog.Builder(context, R.style.AlertDialogCustom)
+            builder.setCancelable(true)
+
+            return builder
+        }
+
+        fun getSelectedVendorID(): String {
+
+            return "34"
+
+        }
+
+        fun parseDateToddMMyyyy(time: String?): String? {
+            val inputPattern = "HH:mm:ss"
+            val outputPattern = "h:mm a"
+            val inputFormat = SimpleDateFormat(inputPattern)
+            val outputFormat = SimpleDateFormat(outputPattern)
+            var date: Date? = null
+            var str: String? = null
+            try {
+                date = inputFormat.parse(time)
+                str = outputFormat.format(date)
+            } catch (e: ParseException) {
+                e.printStackTrace()
+            }
+            return str
+        }
 
     }
 

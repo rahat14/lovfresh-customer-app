@@ -1,4 +1,4 @@
-package com.lovfreshuser.ui
+package com.lovfreshuser.ui.product
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

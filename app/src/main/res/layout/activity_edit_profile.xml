@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true">
+
+    <include layout="@layout/toolbar_bar_main" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tool_bar"
+        android:background="@color/white"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_profile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/cmv_profile"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/user_image"
+                    app:civ_border_color="@color/colorPrimaryDark"
+                    app:civ_border_width="1dp" />
+
+                <ImageView
+                    android:id="@+id/iv_add_image"
+                    style="@style/imageStyle"
+                    android:contentDescription="@null"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/ic_add_img" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                style="@style/testsecondStyle"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="@string/user_name"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_first_name"
+                style="@style/editTextstyle"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/first_nm"
+                android:inputType="textCapSentences" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_last_name"
+                style="@style/editTextstyle"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/last_nm"
+                android:inputType="textCapSentences" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_email"
+                style="@style/editTextstyle"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
+
+            <RelativeLayout
+                android:id="@+id/rv_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/bg_white_box_with_gray">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_centerVertical="true"
+                    app:ccp_areaCodeDetectedCountry="true"
+                    app:ccp_defaultPhoneCode="61"
+                    app:ccp_showFlag="false"
+                    app:ccp_showNameCode="false"
+                    app:ccp_textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_country_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/default_county_code"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="1dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/ccp"
+                    android:background="@color/black" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/ed_phone"
+                    style="@style/editTextstyle"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/view1"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/phone"
+                    android:inputType="number"
+                    android:maxLength="14" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_update"
+                style="@style/buttonStyle"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/update_profile"
+                android:textAllCaps="false" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_gravity="bottom"
+                android:layout_margin="25dp"
+                android:contentDescription="@null"
+                android:src="@drawable/heart_logo" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

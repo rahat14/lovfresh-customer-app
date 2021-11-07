@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.lovfreshuser.HelperClass
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.databinding.FragmentSpecialsBinding
 import com.lovfreshuser.models.ProductCategory
 import com.lovfreshuser.networking.ApiProvider
-import com.lovfreshuser.ui.ProductPagerAdapter
+import com.lovfreshuser.ui.product.ProductPagerAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

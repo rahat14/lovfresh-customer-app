@@ -134,6 +134,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:id="@+id/dd"
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|center_vertical"

@@ -24,11 +24,15 @@ interface CartDao {
     fun delete(item: CartLocalDbModel)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateTodo(vararg item: CartLocalDbModel)
+    fun updateItem(vararg item: CartLocalDbModel)
 
 
 
 
 
 
+}
+
+interface ItemSelectInterface {
+    fun itemSelect(id: String?, title: String?)
 }

@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.lovfreshuser.R
+import com.lovfreshuser.utils.HelperClass
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,8 +14,13 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         Handler(Looper.getMainLooper()).postDelayed({
             /* Create an Intent that will start the Menu-Activity. */
-            val mainIntent = Intent(this, LoginPage::class.java)
-            startActivity(mainIntent)
+            if (HelperClass.isUserLoggedIn()) {
+                val mainIntent = Intent(this, HomeActivity::class.java)
+                startActivity(mainIntent)
+            } else {
+                val mainIntent = Intent(this, LoginPage::class.java)
+                startActivity(mainIntent)
+            }
             finish()
         }, 700)
     }
