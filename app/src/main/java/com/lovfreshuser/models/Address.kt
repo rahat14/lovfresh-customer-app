@@ -14,6 +14,6 @@ data class Address(
     val lat_long: String? = null,
     val latitude: String? = null,
     val longitude: String? = null,
-    val mobile: Any? = null,
-    val streat: Any? = null
+    val mobile: String? = null,
+    val streat: String? = null
 ):Serializable

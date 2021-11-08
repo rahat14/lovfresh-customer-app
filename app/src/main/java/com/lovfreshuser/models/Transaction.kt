@@ -2,6 +2,7 @@ package com.lovfreshuser.models
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Transaction(
     @SerializedName("id")
@@ -10,4 +11,4 @@ data class Transaction(
     var invoice: String? = "", // http://13.55.122.237/media/uploads/invoices/order_1631747493.592755.pdf
     @SerializedName("transactionsid")
     var transactionsid: String? = "" // txn_3Ja7G9G5dbidyhlP19YqrImn
-)
+): Serializable

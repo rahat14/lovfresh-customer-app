@@ -1,6 +1,7 @@
 package com.lovfreshuser.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class OrderHistoryItem(
     @SerializedName("address")
@@ -40,9 +41,9 @@ data class OrderHistoryItem(
     @SerializedName("total")
     var total: String? = "", // 4.98
     @SerializedName("transaction")
-    var transaction: List<Transaction>? = listOf(),
+    var transaction: List<Transaction> = emptyList(),
     @SerializedName("user")
     var user: User? = User(),
     @SerializedName("vendor")
     var vendor: Vendor? = Vendor()
-)
+):Serializable

@@ -2,6 +2,7 @@ package com.lovfreshuser.models
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Vendor(
     @SerializedName("abn")
@@ -35,5 +36,6 @@ data class Vendor(
     @SerializedName("vendor_notification")
     var vendorNotification: List<VendorNotification>? = listOf(),
     @SerializedName("website")
-    var website: String? = "" // www.facebook.com/davidsfreshprestons
-)
+    var website: String? = "", // www.facebook.com/davidsfreshprestons,
+    val address: Address? = null
+): Serializable

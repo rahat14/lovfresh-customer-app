@@ -23,6 +23,9 @@
         android:theme="@style/Theme.Lovfresh"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.orders.OrderDetailPopup"
+            android:exported="false" />
+        <activity
             android:name=".ui.orders.OrderPage"
             android:exported="false" />
         <activity

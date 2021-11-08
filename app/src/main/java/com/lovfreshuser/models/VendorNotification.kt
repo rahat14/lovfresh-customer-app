@@ -2,6 +2,7 @@ package com.lovfreshuser.models
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class VendorNotification(
     @SerializedName("id")
@@ -16,4 +17,4 @@ data class VendorNotification(
     var user: Any? = Any(), // null
     @SerializedName("vendor")
     var vendor: Int? = 0 // 34
-)
+): Serializable
