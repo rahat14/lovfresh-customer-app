@@ -1,5 +1,6 @@
 package com.lovfreshuser.ui.orders
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -88,7 +89,9 @@ class OrderFragment(type: String) : Fragment(), OrderHistoryAdapter.Interaction 
 
     override fun onItemSelected(position: Int, item: OrderHistoryItem) {
         // to do
-
+        val intent = Intent(context, OrderDetailPopup::class.java)
+        intent.putExtra("ORDER_MODEL", item)
+        startActivity(intent)
     }
 
 

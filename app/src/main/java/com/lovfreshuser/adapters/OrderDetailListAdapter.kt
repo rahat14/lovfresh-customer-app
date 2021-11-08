@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.R
-import com.lovfreshuser.database.models.CartLocalDbModel
 import com.lovfreshuser.databinding.ItemOrListBinding
 import com.lovfreshuser.models.OrderProduct
+import com.lovfreshuser.utils.HelperClass
 
 class OrderDetailListAdapter(
     private val interaction: Interaction? = null
@@ -81,10 +80,12 @@ class OrderDetailListAdapter(
 
             binding.tvQuantity.text = "${item.quantity} x ${item.price}"
 
-            val qty = item.quantity
-            val price : Double? = item.price?.toDoubleOrNull()
-            if(price != null){
+            val qty = item.quantity?.toDouble()
+            val price: Double? = item.price?.toDoubleOrNull()
+            if (price != null && qty != null) {
+
                 binding.tvAmount.text = "$${HelperClass.convertAmountToString(price * qty)} "
+
             }
 
 

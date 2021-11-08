@@ -11,15 +11,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lovfreshuser.R
+import com.lovfreshuser.adapters.OrderDetailListAdapter
 import com.lovfreshuser.databinding.ActivityOrderDetailPopupBinding
 import com.lovfreshuser.models.Address
 import com.lovfreshuser.models.OrderHistoryItem
+import com.lovfreshuser.models.OrderProduct
 import com.lovfreshuser.models.Transaction
 import com.lovfreshuser.utils.HelperClass
 import java.util.*
 
-class OrderDetailPopup : AppCompatActivity() {
+class OrderDetailPopup : AppCompatActivity(), OrderDetailListAdapter.Interaction {
     private lateinit var binding: ActivityOrderDetailPopupBinding
     private val PERMISSIONS = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -42,6 +45,7 @@ class OrderDetailPopup : AppCompatActivity() {
         return true
     }
 
+    private lateinit var orderAdapter: OrderDetailListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +54,14 @@ class OrderDetailPopup : AppCompatActivity() {
         window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         setFinishOnTouchOutside(false)
+        orderAdapter = OrderDetailListAdapter(this@OrderDetailPopup)
         val orderModel = intent.getSerializableExtra("ORDER_MODEL") as OrderHistoryItem?
+
+
+        binding.rvOrder.apply {
+            layoutManager = LinearLayoutManager(this@OrderDetailPopup)
+            adapter = orderAdapter
+        }
 
         if (orderModel != null) {
             val order_no = orderModel.orderNumber
@@ -168,12 +179,16 @@ class OrderDetailPopup : AppCompatActivity() {
             }
             val productModels = orderModel.orderProducts
             if (productModels != null && !productModels.isEmpty()) {
-                orderListAdapter.setData(productModels)
-                orderListAdapter.notifyDataSetChanged()
+                orderAdapter.submitList(productModels)
             } else {
             }
         }
 
     }
+
+    override fun onItemSelected(position: Int, item: OrderProduct) {
+
+    }
+
 
 }
