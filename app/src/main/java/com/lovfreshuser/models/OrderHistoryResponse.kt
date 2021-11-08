@@ -1,6 +1,7 @@
 package com.lovfreshuser.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class OrderHistoryResponse(
     @SerializedName("code")
@@ -15,4 +16,4 @@ data class OrderHistoryResponse(
     var message: String? = "", // Success
     @SerializedName("meta")
     var meta: Meta? = Meta()
-)
+):Serializable

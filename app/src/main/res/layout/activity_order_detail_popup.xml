@@ -10,551 +10,562 @@
     card_view:cardBackgroundColor="@android:color/transparent"
     card_view:cardCornerRadius="15dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        android:background="@drawable/bg_white_dialog">
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
 
-        <ImageView
-            android:id="@+id/iv_close"
-            style="@style/imageStyle"
-            android:layout_gravity="end"
-            android:layout_margin="10dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_clear_black_24dp"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
-
-        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true"
-            android:isScrollContainer="true"
-            android:measureAllChildren="true"
-            android:scrollbars="none"
-            card_view:layout_constraintTop_toBottomOf="@+id/iv_close">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:background="@drawable/bg_white_dialog">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/rv_main"
+            <ImageView
+                android:id="@+id/iv_close"
+                style="@style/imageStyle"
+                android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_clear_black_24dp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:fillViewport="true"
+                android:isScrollContainer="true"
+                android:measureAllChildren="true"
+                android:scrollbars="none"
+                card_view:layout_constraintTop_toBottomOf="@+id/iv_close">
 
-
-                <TextView
-                    android:id="@+id/tv_order_title"
-                    style="@style/testMediumTitleStyle"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/rv_main"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/padd_10"
-                    android:gravity="center"
-                    android:maxLines="2"
-                    android:text=""
-                    android:textSize="20sp" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-                <TextView
-                    android:id="@+id/tv_order_nu"
-                    style="@style/testMediumTitleStyle"
-                    android:layout_marginTop="@dimen/padd_10"
-                    android:text="@string/order_detail"
-                    android:textSize="17sp" />
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/tv_name"
-                        style="@style/testMediumStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/name"
-                        android:textColor="@color/fill_text" />
+                        android:id="@+id/tv_order_title"
+                        style="@style/testMediumTitleStyle"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/padd_10"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text=""
+                        android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/tv_order_name"
+                        android:id="@+id/tv_order_nu"
+                        style="@style/testMediumTitleStyle"
+                        android:layout_marginTop="@dimen/padd_10"
+                        android:text="@string/order_detail"
+                        android:textSize="17sp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_name"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/name"
+                            android:textColor="@color/fill_text" />
+
+                        <TextView
+                            android:id="@+id/tv_order_name"
+                            style="@style/testMediumStyle"
+                            android:layout_alignBaseline="@+id/tv_name"
+                            android:layout_marginStart="@dimen/padd_10"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/tv_name"
+                            android:text="" />
+
+                        <TextView
+                            android:id="@+id/tv_phone"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_name"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/phone"
+                            android:textColor="@color/fill_text" />
+
+                        <TextView
+                            android:id="@+id/tv_order_phone"
+                            style="@style/testMediumStyle"
+                            android:layout_alignBaseline="@+id/tv_phone"
+                            android:layout_marginStart="@dimen/padd_10"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/tv_phone"
+                            android:text="" />
+
+                        <TextView
+                            android:id="@+id/tv_email"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_phone"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/email"
+                            android:textColor="@color/fill_text" />
+
+                        <TextView
+                            android:id="@+id/tv_order_email"
+                            style="@style/testMediumStyle"
+                            android:layout_alignBaseline="@+id/tv_email"
+                            android:layout_marginStart="@dimen/padd_10"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/tv_email"
+                            android:text="" />
+
+                        <!--   <TextView
+                               android:id="@+id/tv_status"
+                               style="@style/testMediumStyle"
+                               android:layout_width="wrap_content"
+                               android:layout_marginTop="5dp"
+                               android:layout_below="@+id/tv_order_email"
+                               android:text="@string/order_status"
+                               android:textColor="@color/fill_text"/>
+                           <TextView
+                               android:id="@+id/tv_order_status"
+                               style="@style/testMediumStyle"
+                               android:layout_alignBaseline="@+id/tv_status"
+                               android:layout_marginStart="@dimen/padd_10"
+                               android:layout_marginTop="5dp"
+                               android:layout_toEndOf="@+id/tv_status"
+                               android:text="" />-->
+
+                        <LinearLayout
+                            android:id="@+id/ll_order_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_email"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <TextView
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="@string/order_number" />
+
+                                <TextView
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="@string/pickup_delivery" />
+
+                                <TextView
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <TextView
+                                    android:id="@+id/tv_order_id"
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_order_type"
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    tools:text="@string/pickup"
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:text=""
+                                    android:textSize="10sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <TextView
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="@string/date_and_time" />
+
+                                <TextView
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="@string/slot_selected" />
+
+                                <TextView
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="@string/Order_Status" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <TextView
+                                    android:id="@+id/tv_order_date_time"
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:maxLines="2"
+                                    android:text=""
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_pickup_slot"
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:text=""
+                                    android:textSize="10sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_order_status"
+                                    style="@style/testMediumStyle"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/tv_sum"
+                            style="@style/testMediumStyle"
+                            android:layout_below="@+id/ll_order_view"
+                            android:layout_marginTop="15dp"
+                            android:text="@string/summery"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_orde"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_sum"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/order"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_order"
+                            style="@style/testMediumStyle"
+                            android:layout_below="@+id/tv_sum"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/tv_orde"
+                            android:text=""
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_shop_nm"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_sum"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/shop_name"
+                            android:textColor="@color/fill_text" />
+
+                        <TextView
+                            android:id="@+id/tv_shop_name"
+                            style="@style/testMediumStyle"
+                            android:layout_alignBaseline="@+id/tv_shop_nm"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/tv_shop_nm"
+                            android:text="" />
+
+                        <TextView
+                            android:id="@+id/tv_shop_addre"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_shop_nm"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/shop_address"
+                            android:textColor="@color/fill_text" />
+
+                        <TextView
+                            android:id="@+id/tv_shop_address"
+                            style="@style/testMediumStyle"
+                            android:layout_alignBaseline="@+id/tv_shop_addre"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/tv_shop_addre"
+                            android:maxLines="2"
+                            android:text="" />
+
+
+                        <TextView
+                            android:id="@+id/tv_orde_d"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_shop_address"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/order_d"
+                            android:textColor="@color/fill_text"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_order_date"
+                            style="@style/testMediumStyle"
+                            android:layout_alignBaseline="@+id/tv_orde_d"
+                            android:layout_toEndOf="@+id/tv_orde_d"
+                            android:text="" />
+
+                        <TextView
+                            android:id="@+id/tv_total"
+                            style="@style/testMediumStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/tv_orde_d"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/order_tota"
+                            android:textColor="@color/fill_text"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/tv_order_total"
+                            style="@style/testMediumStyle"
+                            android:layout_alignBaseline="@+id/tv_total"
+                            android:layout_marginTop="5dp"
+                            android:layout_toEndOf="@+id/tv_total"
+                            android:text="" />
+
+                    </RelativeLayout>
+
+
+                    <TextView
                         style="@style/testMediumStyle"
-                        android:layout_alignBaseline="@+id/tv_name"
-                        android:layout_marginStart="@dimen/padd_10"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/address_colon"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_address"
+                        style="@style/testMediumStyle"
                         android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@+id/tv_name"
                         android:text="" />
 
                     <TextView
-                        android:id="@+id/tv_phone"
+                        android:id="@+id/tv_deliver_date"
                         style="@style/testMediumStyle"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/shipping_date" />
+
+                    <TextView
+                        android:id="@+id/tv_deliver_time"
+                        style="@style/testMediumStyle"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/pickup_time" />
+
+                    <TextView
+                        android:id="@+id/tv_reject_reason_header"
+                        style="@style/testMediumTitleStyle"
                         android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_name"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/phone"
-                        android:textColor="@color/fill_text" />
+                        android:layout_marginTop="15dp"
+                        android:text="@string/reject_reason"
+                        android:visibility="gone" />
 
                     <TextView
-                        android:id="@+id/tv_order_phone"
+                        android:id="@+id/tv_reject_reason"
                         style="@style/testMediumStyle"
-                        android:layout_alignBaseline="@+id/tv_phone"
-                        android:layout_marginStart="@dimen/padd_10"
+                        android:layout_width="match_parent"
                         android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@+id/tv_phone"
-                        android:text="" />
+                        android:text=""
+                        android:textSize="10sp"
+                        android:visibility="gone" />
+
 
                     <TextView
-                        android:id="@+id/tv_email"
-                        style="@style/testMediumStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_phone"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/email"
-                        android:textColor="@color/fill_text" />
-
-                    <TextView
-                        android:id="@+id/tv_order_email"
-                        style="@style/testMediumStyle"
-                        android:layout_alignBaseline="@+id/tv_email"
-                        android:layout_marginStart="@dimen/padd_10"
-                        android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@+id/tv_email"
-                        android:text="" />
-
-                    <!--   <TextView
-                           android:id="@+id/tv_status"
-                           style="@style/testMediumStyle"
-                           android:layout_width="wrap_content"
-                           android:layout_marginTop="5dp"
-                           android:layout_below="@+id/tv_order_email"
-                           android:text="@string/order_status"
-                           android:textColor="@color/fill_text"/>
-                       <TextView
-                           android:id="@+id/tv_order_status"
-                           style="@style/testMediumStyle"
-                           android:layout_alignBaseline="@+id/tv_status"
-                           android:layout_marginStart="@dimen/padd_10"
-                           android:layout_marginTop="5dp"
-                           android:layout_toEndOf="@+id/tv_status"
-                           android:text="" />-->
+                        style="@style/testMediumTitleStyle"
+                        android:layout_marginTop="@dimen/padd_15"
+                        android:text="@string/order_list" />
 
                     <LinearLayout
-                        android:id="@+id/ll_order_view"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tv_email"
-                        android:orientation="vertical">
+                        android:layout_height="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
+                        <TextView
+                            style="@style/testsecondStyle"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/product"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
-                            <TextView
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="@string/order_number" />
+                        <TextView
+                            style="@style/testsecondStyle"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/quantity"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
-                            <TextView
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="@string/pickup_delivery" />
-
-                            <TextView
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
-
-                            <TextView
-                                android:id="@+id/tv_order_id"
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text=""
-                                android:textSize="10sp" />
-
-                            <TextView
-                                android:id="@+id/tv_order_type"
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                tools:text="@string/pickup"
-                                android:textSize="10sp" />
-
-                            <TextView
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:text=""
-                                android:textSize="10sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
-
-                            <TextView
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="@string/date_and_time" />
-
-                            <TextView
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="@string/slot_selected" />
-
-                            <TextView
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="@string/Order_Status" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="3">
-
-                            <TextView
-                                android:id="@+id/tv_order_date_time"
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:maxLines="2"
-                                android:text=""
-                                android:textSize="10sp" />
-
-                            <TextView
-                                android:id="@+id/tv_pickup_slot"
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:text=""
-                                android:textSize="10sp" />
-
-                            <TextView
-                                android:id="@+id/tv_order_status"
-                                style="@style/testMediumStyle"
-                                android:layout_marginTop="5dp"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:text=""
-                                android:textSize="10sp" />
-
-                        </LinearLayout>
+                        <TextView
+                            style="@style/testsecondStyle"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/price"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
-
-                    <TextView
-                        android:id="@+id/tv_sum"
-                        style="@style/testMediumStyle"
-                        android:layout_below="@+id/ll_order_view"
-                        android:layout_marginTop="15dp"
-                        android:text="@string/summery"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_orde"
-                        style="@style/testMediumStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_sum"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/order"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/tv_order"
-                        style="@style/testMediumStyle"
-                        android:layout_below="@+id/tv_sum"
-                        android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@+id/tv_orde"
-                        android:text=""
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/tv_shop_nm"
-                        style="@style/testMediumStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_sum"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/shop_name"
-                        android:textColor="@color/fill_text" />
-
-                    <TextView
-                        android:id="@+id/tv_shop_name"
-                        style="@style/testMediumStyle"
-                        android:layout_alignBaseline="@+id/tv_shop_nm"
-                        android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@+id/tv_shop_nm"
-                        android:text="" />
-
-                    <TextView
-                        android:id="@+id/tv_shop_addre"
-                        style="@style/testMediumStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_shop_nm"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/shop_address"
-                        android:textColor="@color/fill_text" />
-
-                    <TextView
-                        android:id="@+id/tv_shop_address"
-                        style="@style/testMediumStyle"
-                        android:layout_alignBaseline="@+id/tv_shop_addre"
-                        android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@+id/tv_shop_addre"
-                        android:maxLines="2"
-                        android:text="" />
-
-
-                    <TextView
-                        android:id="@+id/tv_orde_d"
-                        style="@style/testMediumStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_shop_address"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/order_d"
-                        android:textColor="@color/fill_text"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/tv_order_date"
-                        style="@style/testMediumStyle"
-                        android:layout_alignBaseline="@+id/tv_orde_d"
-                        android:layout_toEndOf="@+id/tv_orde_d"
-                        android:text="" />
-
-                    <TextView
-                        android:id="@+id/tv_total"
-                        style="@style/testMediumStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_below="@+id/tv_orde_d"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/order_tota"
-                        android:textColor="@color/fill_text"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/tv_order_total"
-                        style="@style/testMediumStyle"
-                        android:layout_alignBaseline="@+id/tv_total"
-                        android:layout_marginTop="5dp"
-                        android:layout_toEndOf="@+id/tv_total"
-                        android:text="" />
-
-                </RelativeLayout>
-
-
-                <TextView
-                    style="@style/testMediumStyle"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/address_colon"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_address"
-                    style="@style/testMediumStyle"
-                    android:layout_marginTop="5dp"
-                    android:text="" />
-
-                <TextView
-                    android:id="@+id/tv_deliver_date"
-                    style="@style/testMediumStyle"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/shipping_date" />
-
-                <TextView
-                    android:id="@+id/tv_deliver_time"
-                    style="@style/testMediumStyle"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/pickup_time" />
-
-                <TextView
-                    android:id="@+id/tv_reject_reason_header"
-                    style="@style/testMediumTitleStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/reject_reason"
-                    android:visibility="gone" />
-
-                <TextView
-                    android:id="@+id/tv_reject_reason"
-                    style="@style/testMediumStyle"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="5dp"
-                    android:text=""
-                    android:textSize="10sp"
-                    android:visibility="gone" />
-
-
-                <TextView
-                    style="@style/testMediumTitleStyle"
-                    android:layout_marginTop="@dimen/padd_15"
-                    android:text="@string/order_list" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/testsecondStyle"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="@string/product"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/testsecondStyle"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/quantity"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/testsecondStyle"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/price"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_order"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:itemCount="3"
-                    tools:listitem="@layout/item_or_list" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        style="@style/testsecondStyle"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:text="Delivery Charges"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        style="@style/testsecondStyle"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_distance_fee_amount"
-                        style="@style/testsecondStyle"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:maxLines="2"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <View
-                    style="@style/viewLineStyle"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/padd_10" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/total"
-                        style="@style/testMediumSecondStyle"
-                        android:layout_width="wrap_content"
-                        android:text="@string/total"
-                        android:textColor="@color/black"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_total_amount"
-                        style="@style/testsecondStyle"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_order"
                         android:layout_width="match_parent"
-                        android:layout_gravity="end"
-                        android:layout_marginEnd="25dp"
-                        android:gravity="end"
-                        android:text=""
-                        android:textSize="16sp" />
+                        android:layout_height="wrap_content"
+                        tools:itemCount="3"
+                        tools:listitem="@layout/item_or_list" />
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/btn_down_invoice"
-                    style="@style/buttonStyle"
-                    android:layout_marginTop="@dimen/padd_10"
-                    android:background="@drawable/bg_status_box"
-                    android:maxLines="2"
-                    android:padding="3dp"
-                    android:text="@string/download_invoice"
-                    android:textAllCaps="false"
-                    android:textSize="14sp"
-                    android:visibility="gone" />
+                        <TextView
+                            style="@style/testsecondStyle"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="Delivery Charges"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/btn_cust_call"
-                    style="@style/buttonStyle"
-                    android:layout_margin="@dimen/padd_10"
-                    android:background="@drawable/bg_google_red_box"
-                    android:maxLines="3"
-                    android:padding="3dp"
-                    android:text="@string/contact_us"
-                    android:textAllCaps="false"
-                    android:textSize="13sp" />
+                        <TextView
+                            style="@style/testsecondStyle"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"/>
+                        <TextView
+                            android:id="@+id/tv_distance_fee_amount"
+                            style="@style/testsecondStyle"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.core.widget.NestedScrollView>
+                    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <View
+                        style="@style/viewLineStyle"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/padd_10" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/total"
+                            style="@style/testMediumSecondStyle"
+                            android:layout_width="wrap_content"
+                            android:text="@string/total"
+                            android:textColor="@color/black"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_total_amount"
+                            style="@style/testsecondStyle"
+                            android:layout_width="match_parent"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="25dp"
+                            android:gravity="end"
+                            android:text=""
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/btn_down_invoice"
+                        style="@style/buttonStyle"
+                        android:layout_marginTop="@dimen/padd_10"
+                        android:background="@drawable/bg_status_box"
+                        android:maxLines="2"
+                        android:padding="3dp"
+                        android:text="@string/download_invoice"
+                        android:textAllCaps="false"
+                        android:textSize="14sp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/btn_cust_call"
+                        style="@style/buttonStyle"
+                        android:layout_margin="@dimen/padd_10"
+                        android:background="@drawable/bg_google_red_box"
+                        android:maxLines="3"
+                        android:padding="3dp"
+                        android:text="@string/contact_us"
+                        android:textAllCaps="false"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <include
+            android:id="@+id/loader"
+            layout="@layout/loading_panel_layout"/>
+    </FrameLayout>
+
+
 </androidx.cardview.widget.CardView>

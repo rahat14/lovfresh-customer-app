@@ -24,6 +24,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".ui.orders.OrderDetailPopup"
+            android:theme="@style/mytheme"
             android:exported="false" />
         <activity
             android:name=".ui.orders.OrderPage"

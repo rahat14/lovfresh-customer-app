@@ -15,11 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.lovfreshuser.R
 import com.lovfreshuser.adapters.OrderDetailListAdapter
 import com.lovfreshuser.databinding.ActivityOrderDetailPopupBinding
-import com.lovfreshuser.models.Address
-import com.lovfreshuser.models.OrderHistoryItem
-import com.lovfreshuser.models.OrderProduct
-import com.lovfreshuser.models.Transaction
+import com.lovfreshuser.models.*
+import com.lovfreshuser.networking.ApiProvider
 import com.lovfreshuser.utils.HelperClass
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 class OrderDetailPopup : AppCompatActivity(), OrderDetailListAdapter.Interaction {
@@ -55,7 +56,7 @@ class OrderDetailPopup : AppCompatActivity(), OrderDetailListAdapter.Interaction
         window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         setFinishOnTouchOutside(false)
         orderAdapter = OrderDetailListAdapter(this@OrderDetailPopup)
-        val orderModel = intent.getSerializableExtra("ORDER_MODEL") as OrderHistoryItem?
+        val orderID = intent.getIntExtra("ORDER_ID", 0)
 
 
         binding.rvOrder.apply {
@@ -63,6 +64,45 @@ class OrderDetailPopup : AppCompatActivity(), OrderDetailListAdapter.Interaction
             adapter = orderAdapter
         }
 
+        downladData(orderID)
+
+        binding.ivClose.setOnClickListener {
+            finish()
+        }
+
+    }
+
+    private fun downladData(orderID: Int) {
+
+        binding.loader.loadingPanel.visibility = View.VISIBLE
+        val productListCall = ApiProvider.dataApi.getOrderDetails(orderID)
+        productListCall.enqueue(object : Callback<OrderHistoryItem> {
+            override fun onResponse(
+                call: Call<OrderHistoryItem>,
+                response: Response<OrderHistoryItem>
+            ) {
+                binding.loader.loadingPanel.visibility = View.GONE
+                val model: OrderHistoryItem? = response.body()
+                setDetails(model)
+
+            }
+
+            override fun onFailure(call: Call<OrderHistoryItem>, t: Throwable) {
+                binding.loader.loadingPanel.visibility = View.GONE
+                applicationContext?.let {
+                    HelperClass.showErrorMsg(
+                        "Error : ${t.localizedMessage}",
+                        it
+                    )
+                }
+            }
+
+        })
+
+
+    }
+
+    private fun setDetails(orderModel: OrderHistoryItem?) {
         if (orderModel != null) {
             val order_no = orderModel.orderNumber
             val vendor_id = orderModel.vendor?.id
@@ -177,13 +217,16 @@ class OrderDetailPopup : AppCompatActivity(), OrderDetailListAdapter.Interaction
                 }
             } else {
             }
+
+
             val productModels = orderModel.orderProducts
             if (productModels != null && !productModels.isEmpty()) {
                 orderAdapter.submitList(productModels)
             } else {
             }
+        } else {
+            HelperClass.showErrorMsg("asd", applicationContext)
         }
-
     }
 
     override fun onItemSelected(position: Int, item: OrderProduct) {

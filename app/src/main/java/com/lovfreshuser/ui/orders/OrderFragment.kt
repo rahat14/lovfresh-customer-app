@@ -90,7 +90,7 @@ class OrderFragment(type: String) : Fragment(), OrderHistoryAdapter.Interaction 
     override fun onItemSelected(position: Int, item: OrderHistoryItem) {
         // to do
         val intent = Intent(context, OrderDetailPopup::class.java)
-        intent.putExtra("ORDER_MODEL", item)
+        intent.putExtra("ORDER_ID", item.id)
         startActivity(intent)
     }
 

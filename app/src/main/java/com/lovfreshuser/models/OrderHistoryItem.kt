@@ -6,8 +6,8 @@ import java.io.Serializable
 data class OrderHistoryItem(
     @SerializedName("address")
     var address: Address? = Address(),
-    @SerializedName("coupon")
-    var coupon: Any? = Any(), // null
+//    @SerializedName("coupon")
+//    var coupon: String? = Any(), // null
     @SerializedName("created_at")
     var createdAt: String? = "", // 2021-09-15T23:11:22.895422Z
     @SerializedName("deliver_date")
@@ -33,7 +33,7 @@ data class OrderHistoryItem(
     @SerializedName("payment_type")
     var paymentType: String? = "", // card
     @SerializedName("rejection_reason")
-    var rejectionReason: Any? = Any(), // null
+    var rejectionReason: String? = null, // null
     @SerializedName("start_time")
     var startTime: String? = "", // 12:00:00
     @SerializedName("status")
@@ -41,9 +41,9 @@ data class OrderHistoryItem(
     @SerializedName("total")
     var total: String? = "", // 4.98
     @SerializedName("transaction")
-    var transaction: List<Transaction> = emptyList(),
-    @SerializedName("user")
-    var user: User? = User(),
+   var transaction: List<Transaction> = emptyList(),
+   @SerializedName("user")
+    var user: User? = null,
     @SerializedName("vendor")
-    var vendor: Vendor? = Vendor()
+    var vendor: Vendor? = null
 ):Serializable

@@ -11,6 +11,13 @@ interface ApiService {
         val IMAGE_URL: String = "http://13.55.122.237"
     }
 
+    //single order deitals
+
+    @GET("orders/{order_id}")
+    fun getOrderDetails(
+        @Path("order_id") order_id: Int,
+    ): Call<OrderHistoryItem>
+
     //orv order
     @GET("v2/orders")
     fun getPrevOrders(
