@@ -9,6 +9,7 @@ import com.lovfreshuser.R
 import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.databinding.ActivityHomeBinding
 import com.lovfreshuser.ui.fragments.ContianerPagerAdapter
+import com.lovfreshuser.ui.notificaitons.NotificationList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,6 +24,11 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.navHostFragment.adapter = ContianerPagerAdapter(this)
         binding.navHostFragment.isUserInputEnabled = false
+
+
+        binding.topBar.rlNotification.setOnClickListener {
+            startActivity(Intent(applicationContext , NotificationList::class.java))
+        }
 
 
 

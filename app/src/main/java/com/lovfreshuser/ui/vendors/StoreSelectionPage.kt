@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.GoogleMap
@@ -73,15 +72,15 @@ class StoreSelectionPage : AppCompatActivity(), VendorItemListAdapter.Interactio
 
         }
 
-        val isInfo = intent.getBooleanExtra("isInfo" , false)
-        if(isInfo){
+        val isInfo = intent.getBooleanExtra("isInfo", false)
+        if (isInfo) {
             binding.autoVendorSearch.visibility = View.GONE
-        }else {
+        } else {
             binding.autoVendorSearch.visibility = View.VISIBLE
         }
 
         binding.rvStore.apply {
-            layoutManager = GridLayoutManager(this@StoreSelectionPage , 2 )
+            layoutManager = GridLayoutManager(this@StoreSelectionPage, 2)
             adapter = mAdapter
         }
 
@@ -242,7 +241,7 @@ class StoreSelectionPage : AppCompatActivity(), VendorItemListAdapter.Interactio
 
     override fun onItemSelected(position: Int, item: VendorItem) {
         val intent = Intent(applicationContext, VendorDetails::class.java)
-        intent.putExtra("MODEL", item)
+        intent.putExtra("MODEL", item.id.toString())
         startActivity(intent)
     }
 

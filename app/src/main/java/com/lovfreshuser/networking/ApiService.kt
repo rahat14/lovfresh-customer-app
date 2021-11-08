@@ -2,6 +2,7 @@ package com.lovfreshuser.networking
 
 import com.google.gson.JsonObject
 import com.lovfreshuser.models.*
+import com.lovfreshuser.models.notification.NotificationResponse
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -10,6 +11,19 @@ interface ApiService {
         val ROOT_URL: String = "http://13.55.122.237/api/"
         val IMAGE_URL: String = "http://13.55.122.237"
     }
+
+    @GET("notification-list")
+    fun getNotifications(
+        @Query("page_size") page_size: Int,
+        @Query("page") page: Int
+    ): Call<NotificationResponse>
+
+
+    // store information
+    @GET("v2/vendor/search-list")
+    fun getVendorDetails(
+        @Query("id") vendor_id: String,
+    ): Call<List<Vendor>>
 
     //single order deitals
 

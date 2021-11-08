@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_img"
+    android:fitsSystemWindows="true">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:orientation="vertical"
+      android:layout_height="match_parent">
+      <include
+          android:id="@+id/topBar"
+          layout="@layout/toolbar_bar_menu" />
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_below="@+id/topBar"
+          android:background="@color/white"
+          android:orientation="vertical">
+
+          <EditText
+              android:id="@+id/auto_vendor_search"
+              style="@style/editTextstyle"
+              android:layout_margin="15dp"
+              android:background="@drawable/bg_red_and_white_box"
+              android:drawableStart="@drawable/ic_search"
+              android:drawablePadding="5dp"
+              android:hint="@string/search"
+              android:imeOptions="actionDone"
+              android:inputType="textCapSentences"
+              android:visibility="gone" />
+
+          <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/rv_store"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_below="@+id/auto_vendor_search"
+              android:layout_marginHorizontal="10dp"
+              android:paddingBottom="25dp"
+              android:clipToPadding="false"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              tools:itemCount="4"
+              tools:listitem="@layout/item_notification_store" />
+
+          <include layout="@layout/no_data_found_layout" />
+
+      </RelativeLayout>
+  </LinearLayout>
+<include
+    android:id="@+id/looader"
+    layout="@layout/loading_panel_layout"/>
+
+    <TextView
+        android:id="@+id/loading_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:background="@color/colorPrimary"
+        android:text="Loading..."
+        android:layout_gravity="bottom|center_horizontal"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:visibility="gone"
+     />
+
+
+</FrameLayout>

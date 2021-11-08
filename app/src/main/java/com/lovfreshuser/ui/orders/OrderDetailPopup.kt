@@ -2,6 +2,7 @@ package com.lovfreshuser.ui.orders
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -17,6 +18,7 @@ import com.lovfreshuser.adapters.OrderDetailListAdapter
 import com.lovfreshuser.databinding.ActivityOrderDetailPopupBinding
 import com.lovfreshuser.models.*
 import com.lovfreshuser.networking.ApiProvider
+import com.lovfreshuser.ui.vendors.VendorDetails
 import com.lovfreshuser.utils.HelperClass
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,6 +32,7 @@ class OrderDetailPopup : AppCompatActivity(), OrderDetailListAdapter.Interaction
         Manifest.permission.WRITE_EXTERNAL_STORAGE
     )
 
+    var vendorID = ""
 
     private fun hasPermissions(context: Context?, vararg permissions: String): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
@@ -70,6 +73,12 @@ class OrderDetailPopup : AppCompatActivity(), OrderDetailListAdapter.Interaction
             finish()
         }
 
+        binding.btnCustCall.setOnClickListener {
+            val intent = Intent(applicationContext, VendorDetails::class.java)
+            intent.putExtra("MODEL", vendorID)
+            startActivity(intent)
+        }
+
     }
 
     private fun downladData(orderID: Int) {
@@ -103,6 +112,8 @@ class OrderDetailPopup : AppCompatActivity(), OrderDetailListAdapter.Interaction
     }
 
     private fun setDetails(orderModel: OrderHistoryItem?) {
+        vendorID = orderModel?.vendor?.id.toString()
+
         if (orderModel != null) {
             val order_no = orderModel.orderNumber
             val vendor_id = orderModel.vendor?.id

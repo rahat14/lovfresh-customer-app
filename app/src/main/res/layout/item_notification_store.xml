@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
+
+    <RelativeLayout
+        android:id="@+id/frame_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="15dp">
+
+        <ImageView
+            style="@style/imageStyle"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_notification_black" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ri_shop_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/blank_img" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/testHeadingNormalStyle"
+            android:layout_below="@+id/ri_shop_img"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            style="@style/testHeadingNormalStyle"
+            android:layout_below="@+id/tv_title"
+            android:layout_marginBottom="5dp"
+            android:maxLines="2"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/ri_shop_img"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/testMediumStyle"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:layout_marginTop="0dp"
+                android:text="@string/Order_Status" />
+
+            <TextView
+                android:id="@+id/tv_order_status"
+                style="@style/testMediumStyle"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text=""
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_order_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/order_number" />
+
+                <TextView
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/pickup_or_delivery" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_order_id"
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tv_order_type"
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/pickup"
+                    android:textSize="10sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="@string/date_and_time" />
+
+                <TextView
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center"
+                    android:text="@string/slot_selected" />
+
+                <TextView
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text=""
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/tv_orderdate"
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tv_pickup_slot"
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="10sp" />
+
+                <TextView
+                    style="@style/testMediumStyle"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="10sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view1"
+        style="@style/viweLineStyle"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom" />
+</androidx.cardview.widget.CardView>

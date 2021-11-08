@@ -1,87 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
     android:fitsSystemWindows="true">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar_bar_menu" />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_height="match_parent">
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_bar_menu" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/ri_shop_img"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:src="@drawable/blank_img" />
-
-        <TextView
-            android:id="@+id/tv_shop_nm"
-            style="@style/testHeadingNormalStyle"
-            android:layout_marginTop="10dp"
-            android:text="Fat Apple Shop"
-            android:textColor="@color/colorAccent"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/tv_dis"
-            style="@style/testHeadingNormalStyle"
-            android:layout_marginBottom="5dp"
-            android:maxLines="2"
-            android:text="descipation"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_phone"
-            style="@style/testMediumTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:maxLines="1"
-            android:text="Phone : +0011223344"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_email"
-            style="@style/testMediumTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:maxLines="1"
-            android:text="Email: store@domain.com"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_address"
-            style="@style/testMediumTitleStyle"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="Address:4832 lighting point drive"
-            android:textSize="14sp" />
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="15dp">
 
-        <View
-            style="@style/viweLineStyle"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ri_shop_img"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:src="@drawable/blank_img" />
 
-<!--        <fragment-->
-<!--            android:id="@+id/map"-->
-<!--            android:name="com.google.android.gms.maps.SupportMapFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
-    </LinearLayout>
-</RelativeLayout>
+            <TextView
+                android:id="@+id/tv_shop_nm"
+                style="@style/testHeadingNormalStyle"
+                android:layout_marginTop="10dp"
+                android:text="Fat Apple Shop"
+                android:textColor="@color/colorAccent"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_dis"
+                style="@style/testHeadingNormalStyle"
+                android:layout_marginBottom="5dp"
+                android:maxLines="2"
+                android:text="descipation"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                style="@style/testMediumTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:maxLines="1"
+                android:text="Phone : +0011223344"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                style="@style/testMediumTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:maxLines="1"
+                android:text="Email: store@domain.com"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                style="@style/testMediumTitleStyle"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Address:4832 lighting point drive"
+                android:textSize="14sp" />
+
+            <View
+                style="@style/viweLineStyle"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
+
+            <!--        <fragment-->
+            <!--            android:id="@+id/map"-->
+            <!--            android:name="com.google.android.gms.maps.SupportMapFragment"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="match_parent" />-->
+        </LinearLayout>
+
+    </RelativeLayout>
+<include
+    android:id="@+id/loader"
+    layout="@layout/loading_panel_layout"/>
+
+</FrameLayout>
