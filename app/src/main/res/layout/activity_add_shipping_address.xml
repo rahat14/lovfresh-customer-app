@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/toolbar1"
+        layout="@layout/toolbar_bar_main" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar1"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                style="@style/testMediumThirdStyle"
+                android:layout_marginTop="15dp"
+                android:text="@string/full_name_first_and_last_name"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_full_name"
+                style="@style/editTextstyle"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/fullname"
+                android:inputType="text" />
+
+            <TextView
+                style="@style/testMediumThirdStyle"
+                android:layout_marginTop="15dp"
+                android:text="@string/street_address"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_street_add"
+                style="@style/editTextstyle"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/_2442_columbia_boulevard"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:clickable="true"
+                android:inputType="text" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_flat_no"
+                style="@style/editTextstyle"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/_3rd_floor_suite_name"
+                android:inputType="text" />
+
+            <TextView
+                style="@style/testMediumThirdStyle"
+                android:layout_marginTop="15dp"
+                android:text="@string/city"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_city"
+                style="@style/editTextstyle"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/city"
+                android:inputType="text" />
+
+            <TextView
+                style="@style/testMediumThirdStyle"
+                android:layout_marginTop="15dp"
+                android:text="@string/state_province_region"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_state"
+                style="@style/editTextstyle"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/state"
+                android:inputType="text" />
+
+            <TextView
+                style="@style/testMediumThirdStyle"
+                android:layout_marginTop="15dp"
+                android:text="@string/zip_code"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_zip_code"
+                style="@style/editTextstyle"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/zipcode"
+                android:inputType="number" />
+
+            <TextView
+                style="@style/testMediumThirdStyle"
+                android:layout_marginTop="15dp"
+                android:text="@string/phone_number"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/ed_phone"
+                style="@style/editTextstyle"
+                android:background="@drawable/bg_white_box_with_gray"
+                android:hint="@string/phone"
+                android:inputType="number"
+                android:maxLength="14"/>
+
+            <TextView
+                style="@style/testMediumThirdStyle"
+                android:layout_marginTop="15dp"
+                android:text="@string/address_type"
+                android:textSize="14sp" />
+
+            <RadioGroup
+                android:id="@+id/rg_address_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <RadioButton
+                    android:id="@+id/rb_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/home" />
+
+                <RadioButton
+                    android:id="@+id/rb_work"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/work" />
+
+                <RadioButton
+                    android:id="@+id/rb_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/other" />
+
+            </RadioGroup>
+
+
+            <CheckBox
+                android:id="@+id/cb_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/make_default_address"
+                android:textColor="#8B8B8B"
+                android:textSize="11sp"
+                android:textStyle="italic"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/buttonStyle"
+                android:layout_marginTop="25dp"
+                android:text="@string/save"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

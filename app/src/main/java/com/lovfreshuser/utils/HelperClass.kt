@@ -1,6 +1,5 @@
 package com.lovfreshuser.utils
 
-import android.app.ActivityManager
 import android.app.ProgressDialog
 import android.content.Context
 import android.text.TextUtils
@@ -13,6 +12,8 @@ import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.database.models.CartLocalDbModel
 import com.lovfreshuser.models.User
 import es.dmoral.toasty.Toasty
+import org.json.JSONException
+import org.json.JSONObject
 import java.security.MessageDigest
 import java.text.DecimalFormat
 import java.text.ParseException
@@ -25,6 +26,35 @@ import java.util.regex.Pattern
 class HelperClass {
     companion object {
 
+
+        fun createAddressJson(
+            full_name: String?,
+            address: String?,
+            mobile: String?,
+            flatno: String?,
+            landmark: String?,
+            street: String?,
+            address_type: String?,
+            lat: String?,
+            lng: String?
+        ): JSONObject {
+            val `object` = JSONObject()
+            try {
+                `object`.putOpt("full_name", full_name)
+                `object`.putOpt("address", address)
+                `object`.putOpt("mobile", mobile)
+                `object`.putOpt("flat_number", flatno)
+                `object`.putOpt("landmark", landmark)
+                `object`.putOpt("streat", street)
+                `object`.putOpt("address_type", address_type)
+                `object`.putOpt("latitude", lat)
+                `object`.putOpt("longitude", lng)
+
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+            return `object`
+        }
 
         fun getCountOfCarts(db: OfflineDatabase): Int {
 

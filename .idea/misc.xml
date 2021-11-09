@@ -35,6 +35,7 @@
         <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/layout/toolbar_bar_vendor.xml" value="0.340625" />
         <entry key="..\:/Projects/lovfresh-customer-app/app/src/main/res/menu/bottom_menu.xml" value="0.340625" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/drawable/bg_login_btn.xml" value="0.30185185185185187" />
+        <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_add_shipping_address.xml" value="0.33" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_cart_page.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_edit_profile.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_home.xml" value="0.34375" />
@@ -48,6 +49,9 @@
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_product_menu_page.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_profile_screen.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_register_page.xml" value="0.34375" />
+        <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_search.xml" value="0.3640625" />
+        <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_shipping_address_list.xml" value="0.33958333333333335" />
+        <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_shipping_address_list2.xml" value="0.33958333333333335" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_splash_screen.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/activity_vedor_details.xml" value="0.1703125" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/content_promo_code.xml" value="0.34375" />
@@ -66,6 +70,7 @@
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/item_rv_date.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/item_rv_promo_list.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/item_rv_time.xml" value="0.34375" />
+        <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/item_shipping_address.xml" value="0.33958333333333335" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/item_special_offer_product.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/loading_panel_layout.xml" value="0.34375" />
         <entry key="..\:/Users/SIMEC/AndroidStudioProjects/lovfresh/app/src/main/res/layout/no_data_found_layout.xml" value="0.34375" />

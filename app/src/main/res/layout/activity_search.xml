@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_white_gradient"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            style="@style/back_imageStyle"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:src="@drawable/back_arror_red" />
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/auto_search"
+            style="@style/editTextstyle"
+            android:layout_marginTop="5dp"
+            android:layout_toStartOf="@+id/iv_search"
+            android:layout_toEndOf="@+id/iv_back"
+            android:background="@drawable/bg_gray_border_grediant"
+            android:cursorVisible="true"
+            android:drawableEnd="@drawable/ic_search"
+            android:drawablePadding="5dp"
+            android:focusable="true"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search Product" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_search"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/view1"
+            style="@style/viewLineStyle"
+            android:layout_below="@+id/auto_search"
+            android:layout_marginTop="15sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_search_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/view1"
+            android:layout_marginTop="10dp" />
+
+        <include
+            layout="@layout/content_not_record_found"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/view1" />
+    </RelativeLayout>
+
+</LinearLayout>

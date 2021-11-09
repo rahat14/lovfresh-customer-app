@@ -22,6 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lovfresh"
         android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".ui.address.AddShippingAddress"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.notificaitons.NotificationList"
             android:exported="false" />
@@ -57,8 +66,15 @@
             android:name=".ui.pickUpDelivery.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.pickUpDelivery.ShippingAddressListActivity"
-            android:exported="false" />
+            android:name=".ui.address.ShippingAddressListActivity"
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.pickUpDelivery.PickAndDeliveryPage"
             android:exported="false" />
@@ -85,13 +101,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.SplashScreen"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />

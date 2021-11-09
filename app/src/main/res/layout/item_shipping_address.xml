@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/bg_white_box_with_gray"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_main_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tv_address"
+            style="@style/testsecondStyle"
+            android:layout_width="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_toStartOf="@+id/ll_view"
+            android:text="Chatkhil, Noakhali " />
+
+        <TextView
+            android:id="@+id/tv_phone_no"
+            style="@style/testsecondStyle"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/tv_email"
+            android:layout_marginStart="15dp"
+            android:text="1234567891"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_house_no"
+            style="@style/testsecondStyle"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/tv_phone_no"
+            android:layout_marginStart="15dp"
+            android:text="House no: 22"
+            android:textSize="10sp"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/tv_email"
+            style="@style/testsecondStyle"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/tv_address"
+            android:layout_marginStart="15dp"
+            android:text="Email: store@domain.com"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_road_no"
+            style="@style/testsecondStyle"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/tv_house_no"
+            android:layout_marginStart="15dp"
+            android:text=" Road no: 7"
+            android:textSize="10sp"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_delete_box"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

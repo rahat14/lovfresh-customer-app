@@ -3,6 +3,7 @@ package com.lovfreshuser.networking
 import com.google.gson.JsonObject
 import com.lovfreshuser.models.*
 import com.lovfreshuser.models.notification.NotificationResponse
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -11,6 +12,17 @@ interface ApiService {
         val ROOT_URL: String = "http://13.55.122.237/api/"
         val IMAGE_URL: String = "http://13.55.122.237"
     }
+
+
+    @GET( "address")
+    fun getAddress(): Call<List<ShippingAddressModel>>
+
+
+    @Headers("Content-Type: application/json")
+    @POST("address/")
+    fun createAddress(
+        @Body params: RequestBody
+    ): Call<JsonObject>
 
     @GET("notification-list")
     fun getNotifications(

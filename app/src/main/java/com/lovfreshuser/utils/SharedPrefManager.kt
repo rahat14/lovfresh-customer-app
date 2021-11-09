@@ -58,4 +58,5 @@ object SharedPrefManager {
     inline fun nukeAllData() {
         preferences.edit().clear().apply()
     }
+
 }
