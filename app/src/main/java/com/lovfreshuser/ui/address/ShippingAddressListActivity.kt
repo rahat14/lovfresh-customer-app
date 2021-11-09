@@ -1,5 +1,6 @@
 package com.lovfreshuser.ui.address
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,10 @@ class ShippingAddressListActivity : AppCompatActivity(), ShippingAddressAdapter.
         setContentView(binding.root)
 
         mAdapter = ShippingAddressAdapter(this)
+
+        binding.btnAddAddress.setOnClickListener {
+            startActivity(Intent(applicationContext, AddShippingAddress::class.java))
+        }
 
         binding.toolbar.ivBack.setOnClickListener {
             finish()
@@ -49,7 +54,7 @@ class ShippingAddressListActivity : AppCompatActivity(), ShippingAddressAdapter.
         mAdapter.submitList(ArrayList(model).toList())
         mAdapter.notifyDataSetChanged()
 
-    
+
     }
 
     override fun onResume() {
