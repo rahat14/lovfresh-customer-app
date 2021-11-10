@@ -12,6 +12,7 @@ import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.databinding.ActivityLoginPageBinding
 import com.lovfreshuser.models.LoginResp
 import com.lovfreshuser.networking.ApiProvider
+import com.lovfreshuser.ui.vendors.StoreSelectionPage
 import com.lovfreshuser.utils.SharedPrefManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -67,8 +68,15 @@ class LoginPage : AppCompatActivity() {
                         response.body()?.message.toString(),
                         applicationContext
                     )
-                    startActivity(Intent(applicationContext, HomeActivity::class.java))
-                    finish()
+
+                    if(HelperClass.getSelectedVendorID().isEmpty()){
+                        startActivity(Intent(applicationContext, StoreSelectionPage::class.java))
+                        finish()
+                    }else {
+                        startActivity(Intent(applicationContext, HomeActivity::class.java))
+                        finish()
+                    }
+
 
                 } else if (response.code() == 400) {
                     HelperClass.showInfoMsg(

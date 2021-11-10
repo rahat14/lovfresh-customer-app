@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.R
 import com.lovfreshuser.adapters.DateAdapter
 import com.lovfreshuser.adapters.TimeAdapter
@@ -25,8 +24,10 @@ import com.lovfreshuser.database.models.CartLocalDbModel
 import com.lovfreshuser.databinding.ActivityPaymentBinding
 import com.lovfreshuser.models.DateModel
 import com.lovfreshuser.models.ListOfDate
+import com.lovfreshuser.models.ShippingAddressModel
 import com.lovfreshuser.models.TimeModel
 import com.lovfreshuser.networking.ApiProvider
+import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.utils.SharedPrefManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -70,10 +71,13 @@ class PaymentActivity : AppCompatActivity(), paymentCartAdapter.Interaction,
     private var mobileNo: String = ""
     private var address_id: String = ""
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val shippingAddress = intent.getSerializableExtra("ADDRESS") as ShippingAddressModel?
+
         dateDialog = Dialog(this@PaymentActivity)
         dateDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
 
@@ -81,6 +85,11 @@ class PaymentActivity : AppCompatActivity(), paymentCartAdapter.Interaction,
         timeDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
 
         mAdapter = paymentCartAdapter(this)
+
+        binding.include.ivBack.setOnClickListener {
+            finish()
+        }
+        binding.include.tvToolbarTitle.text = "Payment"
 
         binding.rvOrder.apply {
             layoutManager = LinearLayoutManager(this@PaymentActivity)
@@ -105,6 +114,30 @@ class PaymentActivity : AppCompatActivity(), paymentCartAdapter.Interaction,
             model?.listOfSlot?.let { it1 -> selectDateDialog(it1) }
         }
         cardCardEditFormat()
+
+
+
+        if (shippingAddress != null) {
+            // order home delivery
+            binding.rlAddress.visibility = View.VISIBLE
+            //  tvMobile.setText(SessionManager(this).getNational_number())
+            binding.tvDeliver.visibility = View.VISIBLE
+            binding.timeTitle.text = "Delivery Slots"
+            complAddress = shippingAddress.address.toString()
+            binding.tvAddress.text = complAddress
+
+            mobileNo = shippingAddress.mobile
+            delivery_charges = 0.0
+            address_id = shippingAddress.id.toString()
+            binding.tvMobile.setText("$mobileNo")
+
+        } else {
+            // orderis pick up
+            binding.rlAddress.setVisibility(View.GONE)
+            //  tvMobile.setText(SessionManager(this).getNational_number())
+            binding.tvDeliver.setVisibility(View.GONE)
+            binding.timeTitle.setText("Pickup Slots")
+        }
     }
 
     private fun cardCardEditFormat() {
@@ -162,16 +195,16 @@ class PaymentActivity : AppCompatActivity(), paymentCartAdapter.Interaction,
             ): String {
                 val formatted = StringBuilder()
                 for (i in digits.indices) {
-                  try {
-                      if (digits[i].toChar().digitToInt() != 0) {
-                          formatted.append(digits[i])
-                          if (i > 0 && i < digits.size - 1 && (i + 1) % dividerPosition == 0) {
-                              formatted.append(divider)
-                          }
-                      }
-                  }catch (Ex : java.lang.Exception){
+                    try {
+                        if (digits[i].toChar().digitToInt() != 0) {
+                            formatted.append(digits[i])
+                            if (i > 0 && i < digits.size - 1 && (i + 1) % dividerPosition == 0) {
+                                formatted.append(divider)
+                            }
+                        }
+                    } catch (Ex: java.lang.Exception) {
 
-                  }
+                    }
                 }
                 return formatted.toString()
             }

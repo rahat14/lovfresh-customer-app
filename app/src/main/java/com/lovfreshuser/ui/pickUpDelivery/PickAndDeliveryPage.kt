@@ -18,6 +18,8 @@ class PickAndDeliveryPage : AppCompatActivity() {
             val delivery_status = "delivery"
             val intent = Intent(applicationContext, ShippingAddressListActivity::class.java)
             intent.putExtra("ORDER_TYPE", delivery_status)
+            intent.putExtra("isFromCart", true)
+
             intent.putExtra("DELIVERY_COST", 5.00)
             //SessionManager(context).setSeelction(model.getId())
             startActivity(intent)

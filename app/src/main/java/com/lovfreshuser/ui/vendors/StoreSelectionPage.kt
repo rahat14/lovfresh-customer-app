@@ -1,6 +1,7 @@
 package com.lovfreshuser.ui.vendors
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
@@ -42,18 +43,21 @@ class StoreSelectionPage : AppCompatActivity(), VendorItemListAdapter.Interactio
     private lateinit var locationCallback: LocationCallback
     private lateinit var locationRequest: LocationRequest
     private var locationUpdateState = false
+    private var isInfo = false
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
         private const val REQUEST_CHECK_SETTINGS = 2
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStoreSelectionPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mAdapter = VendorItemListAdapter(this)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
 
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(p0: LocationResult) {
@@ -72,11 +76,11 @@ class StoreSelectionPage : AppCompatActivity(), VendorItemListAdapter.Interactio
 
         }
 
-        val isInfo = intent.getBooleanExtra("isInfo", false)
+        isInfo = intent.getBooleanExtra("isInfo", false)
         if (isInfo) {
             binding.autoVendorSearch.visibility = View.GONE
         } else {
-            binding.autoVendorSearch.visibility = View.VISIBLE
+            binding.autoVendorSearch.visibility = View.GONE
         }
 
         binding.rvStore.apply {
@@ -84,7 +88,7 @@ class StoreSelectionPage : AppCompatActivity(), VendorItemListAdapter.Interactio
             adapter = mAdapter
         }
 
-        binding.topBar.tvToolbarTitle.setText("Vendor List")
+        binding.topBar.tvToolbarTitle.text = "Select Your Vendor"
 
         binding.topBar.ivBack.setOnClickListener {
             finish()
@@ -139,12 +143,12 @@ class StoreSelectionPage : AppCompatActivity(), VendorItemListAdapter.Interactio
     private fun startLocationUpdates() {
         if (ActivityCompat.checkSelfPermission(
                 this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 LOCATION_PERMISSION_REQUEST_CODE
             )
             return
@@ -240,9 +244,14 @@ class StoreSelectionPage : AppCompatActivity(), VendorItemListAdapter.Interactio
     }
 
     override fun onItemSelected(position: Int, item: VendorItem) {
-        val intent = Intent(applicationContext, VendorDetails::class.java)
-        intent.putExtra("MODEL", item.id.toString())
-        startActivity(intent)
+        if (isInfo) {
+            val intent = Intent(applicationContext, VendorDetails::class.java)
+            intent.putExtra("MODEL", item.id.toString())
+            startActivity(intent)
+        } else {
+            item.id?.let { HelperClass.setVendor(it) }
+            finish()
+        }
     }
 
 

@@ -10,6 +10,7 @@ import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.databinding.ActivityHomeBinding
 import com.lovfreshuser.ui.fragments.ContianerPagerAdapter
 import com.lovfreshuser.ui.notificaitons.NotificationList
+import com.lovfreshuser.ui.search.SearchActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,6 +29,10 @@ class HomeActivity : AppCompatActivity() {
 
         binding.topBar.rlNotification.setOnClickListener {
             startActivity(Intent(applicationContext , NotificationList::class.java))
+        }
+
+        binding.topBar.ivSearch.setOnClickListener {
+            startActivity(Intent(applicationContext , SearchActivity::class.java))
         }
 
 

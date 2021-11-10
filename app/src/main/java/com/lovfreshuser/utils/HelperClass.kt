@@ -293,10 +293,22 @@ class HelperClass {
             return builder
         }
 
+        fun setVendor(id : Int){
+            SharedPrefManager.put( id , "vendor" )
+        }
+
         fun getSelectedVendorID(): String {
-
-            return "34"
-
+            val id : Int? = SharedPrefManager.get("vendor" )
+            return id?.toString() ?: "34"
+         //   return "34"
+        }
+        fun getOTP(): String {
+            var otp = Random().nextInt(999999)
+            val noOfOtpDigit = 6
+            while (otp.toString().length != noOfOtpDigit) {
+                otp = Random().nextInt(999999)
+            }
+            return otp.toString()
         }
 
         fun parseDateToddMMyyyy(time: String?): String? {

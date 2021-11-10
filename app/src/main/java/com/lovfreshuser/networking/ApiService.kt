@@ -14,7 +14,15 @@ interface ApiService {
     }
 
 
-    @GET( "address")
+    @GET("products")
+    fun searchProducts(
+        @Query("vendor") vendor_id: String,
+        @Query("title") title: String,
+        @Query("page_size") page_size: Int,
+        @Query("page") page: Int
+    ): Call<ProductListResponse>
+
+    @GET("address")
     fun getAddress(): Call<List<ShippingAddressModel>>
 
 
@@ -96,6 +104,14 @@ interface ApiService {
         @Field("email") phone: String,
         @Field("password") password: String
     ): Call<LoginResp>
+
+
+    @FormUrlEncoded
+    @POST("send-otp")
+    fun sendOtp(
+        @Field("phone_number") phone_number: String,
+        @Field("otp") otp: String
+    ): Call<JsonObject>
 
 
     @FormUrlEncoded

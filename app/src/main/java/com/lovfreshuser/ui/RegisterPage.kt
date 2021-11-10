@@ -85,8 +85,9 @@ class RegisterPage : AppCompatActivity() {
 
     }
 
-    fun goToNextPage() {
+    fun goToNextPage(phone: String) {
         val intent = Intent(applicationContext, VerifyOtp::class.java)
+        intent.putExtra("phone" , phone)
         startActivity(intent)
     }
 
@@ -103,7 +104,7 @@ class RegisterPage : AppCompatActivity() {
                 dialog.dismiss()
                 if (response.code() == 201 && response.isSuccessful) {
 
-                    goToNextPage()
+                    goToNextPage(phone)
                 }
                 else {
                     HelperClass.showInfoMsg("Error : ${response.code()} Please Check Your Entered Data", applicationContext)

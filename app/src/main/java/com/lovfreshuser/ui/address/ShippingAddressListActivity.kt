@@ -9,6 +9,7 @@ import com.lovfreshuser.adapters.ShippingAddressAdapter
 import com.lovfreshuser.databinding.ActivityShippingAddressListBinding
 import com.lovfreshuser.models.ShippingAddressModel
 import com.lovfreshuser.networking.ApiProvider
+import com.lovfreshuser.ui.pickUpDelivery.PaymentActivity
 import com.lovfreshuser.utils.HelperClass
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,11 +18,30 @@ import retrofit2.Response
 class ShippingAddressListActivity : AppCompatActivity(), ShippingAddressAdapter.Interaction {
     private lateinit var binding: ActivityShippingAddressListBinding
     private lateinit var mAdapter: ShippingAddressAdapter
+    var shippingAddress: ShippingAddressModel = ShippingAddressModel()
     var model: List<ShippingAddressModel> = emptyList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityShippingAddressListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val isFromCart = intent.getBooleanExtra("isFromCart", false)
+
+        if (isFromCart) {
+            binding.btnContinue.visibility = View.VISIBLE
+
+
+        }
+
+        binding.btnContinue.setOnClickListener {
+            val intent1 = Intent(this, PaymentActivity::class.java)
+            intent1.putExtra("ADDRESS", shippingAddress)
+            startActivity(intent1)
+
+
+        }
+
 
         mAdapter = ShippingAddressAdapter(this)
 
@@ -42,7 +62,7 @@ class ShippingAddressListActivity : AppCompatActivity(), ShippingAddressAdapter.
     }
 
     override fun onItemSelected(position: Int, item: ShippingAddressModel) {
-
+        shippingAddress = item
         for (mo in model) {
             mo.SelectedAddress = false
         }
