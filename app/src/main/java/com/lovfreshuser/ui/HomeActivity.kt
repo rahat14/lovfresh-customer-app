@@ -4,13 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.lovfreshuser.utils.HelperClass
 import com.lovfreshuser.R
 import com.lovfreshuser.database.OfflineDatabase
 import com.lovfreshuser.databinding.ActivityHomeBinding
 import com.lovfreshuser.ui.fragments.ContianerPagerAdapter
 import com.lovfreshuser.ui.notificaitons.NotificationList
+import com.lovfreshuser.ui.orders.OrderDetailPopup
 import com.lovfreshuser.ui.search.SearchActivity
+import com.lovfreshuser.utils.HelperClass
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,12 +28,20 @@ class HomeActivity : AppCompatActivity() {
         binding.navHostFragment.isUserInputEnabled = false
 
 
+        if (intent.hasExtra("NOTIFICATION_ORDER_ID")) {
+            val orderId = intent.getStringExtra("NOTIFICATION_ORDER_ID")
+            val intent = Intent(this, OrderDetailPopup::class.java)
+            intent.putExtra("ORDER_ID", orderId)
+            startActivity(intent)
+        }
+
+
         binding.topBar.rlNotification.setOnClickListener {
-            startActivity(Intent(applicationContext , NotificationList::class.java))
+            startActivity(Intent(applicationContext, NotificationList::class.java))
         }
 
         binding.topBar.ivSearch.setOnClickListener {
-            startActivity(Intent(applicationContext , SearchActivity::class.java))
+            startActivity(Intent(applicationContext, SearchActivity::class.java))
         }
 
 
@@ -56,7 +65,7 @@ class HomeActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
         binding.topBar.dd.setOnClickListener {
-            startActivity(Intent(applicationContext , CartPage::class.java))
+            startActivity(Intent(applicationContext, CartPage::class.java))
         }
     }
 

@@ -33,10 +33,14 @@ class SpecialsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadTitleCategory()
+     //   loadTitleCategory()
+        setupTab()
         /*
     canceliing drag when swiping
      */
+
+
+
         binding.foodMenuContainerViewPager.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
 
@@ -55,59 +59,26 @@ class SpecialsFragment : Fragment() {
         })
     }
 
-    private fun enableDisableSwipeRefresh(enable: Boolean) {
-        if (binding.swipeLayout != null) {
-            binding.swipeLayout.isEnabled = enable
-        }
-    }
-
-    private fun loadTitleCategory(isfromRefresh: Boolean = false) {
-
-        val catCall =
-            ApiProvider.dataApi.getShopOnlineCategoryOnTab("34")
-        catCall.enqueue(object : Callback<List<ProductCategory>> {
-            override fun onResponse(
-                call: Call<List<ProductCategory>>,
-                response: Response<List<ProductCategory>>
-            ) {
-
-                val tab_list = response.body()
-                if (tab_list != null && !tab_list.isNullOrEmpty()) {
-                    setupTab(tab_list)
-                } else {
-
-                }
-
-                if (isfromRefresh) {
-                    //   binding.swipeLayout.isRefreshing = false
-                }
-                Log.d("TAG", "onResponse: ${response.body().toString()}")
-
-
-            }
-
-            override fun onFailure(call: Call<List<ProductCategory>>, t: Throwable) {
-                context?.let { HelperClass.showErrorMsg("Error ${t.localizedMessage}", it) }
-            }
-
-        })
-    }
-
-
-    private fun setupTab(productCategories: List<ProductCategory>) {
-        // setup the adapter
-        binding.foodMenuContainerViewPager.adapter = null
-        val mAdapter = activity?.let { ProductPagerAdapter(it, productCategories , "SPECIALS") }
+    private fun setupTab() {
+        val names = arrayOf("Today’s Special" , "Blackboard Specials")
+        val mAdapter = activity?.let { SpecialContianerPagerAdapter(it) }
         binding.foodMenuContainerViewPager.adapter = mAdapter
 
         TabLayoutMediator(
             binding.tabCategory,
             binding.foodMenuContainerViewPager
         ) { tab, position ->
-            tab.text = productCategories[position].name
+            tab.text = names[position]
         }.attach()
-
     }
+
+    private fun enableDisableSwipeRefresh(enable: Boolean) {
+        if (binding.swipeLayout != null) {
+            binding.swipeLayout.isEnabled = enable
+        }
+    }
+
+
 
 
 }

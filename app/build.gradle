@@ -98,6 +98,5 @@ dependencies {
     implementation 'com.karumi:dexter:6.2.2'
 
 
-
-
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
 }

@@ -1,4 +1,4 @@
-package com.lovfreshuser.ui.fragments
+package com.lovfreshuser.ui.product
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +15,6 @@ import com.lovfreshuser.databinding.FragmentFoodMenuListBinding
 import com.lovfreshuser.models.ProductDetailsModel
 import com.lovfreshuser.models.ProductListResponse
 import com.lovfreshuser.networking.ApiProvider
-import com.lovfreshuser.ui.product.ProductDetails
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,7 +29,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
     var totalPage = 0
     var type = ""
     var itemCount = 0
-    var tab_cat_id = 0
+    private var tab_cat_id = 0
     var isScrolling = false
     var currentItems: Int = 0
     var totalItems: Int = 0
@@ -77,7 +76,7 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
         binding.pbar.visibility = View.VISIBLE
         //?vendor=34&categories=131&page_size=3
         val productListCall =
-            ApiProvider.dataApi.fetchProductList(34, id, 10, page, type )
+            ApiProvider.dataApi.fetchProductList(HelperClass.getSelectedVendorID(), id, 10, page, type )
         productListCall.enqueue(object : Callback<ProductListResponse> {
             override fun onResponse(
                 call: Call<ProductListResponse>,
@@ -93,8 +92,15 @@ class FoodMenuListFragment : Fragment(), ProductListAdapter.Interaction {
                     postList = ArrayList(mAdapter.getList())
                     response.body()?.data?.results?.let { postList.addAll(it) }
                     mAdapter.submitList(postList)
-                } else {
 
+                    if(mAdapter.getList().isEmpty()){
+                        binding.empty.llNoRecord.visibility = View.VISIBLE
+                    }else binding.empty.llNoRecord.visibility = View.GONE
+
+                } else {
+                    if(mAdapter.getList().isEmpty()){
+                        binding.empty.llNoRecord.visibility = View.VISIBLE
+                    }else binding.empty.llNoRecord.visibility = View.GONE
                 }
 
 

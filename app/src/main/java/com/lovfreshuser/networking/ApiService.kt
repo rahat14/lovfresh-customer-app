@@ -78,7 +78,7 @@ interface ApiService {
 
     @GET("products")
     fun fetchProductList(
-        @Query("vendor") vendor_id: Int,
+        @Query("vendor") vendor_id: String,
         @Query("categories") categories: Int,
         @Query("page_size") page_size: Int,
         @Query("page") page: Int,
